@@ -1,0 +1,6 @@
+export const sushi = '0x374cb8c27130e2c9e04f44303f3c8351b9de61c1'
+export const sushiv2 = '0x374cb8c27130e2c9e04f44303f3c8351b9de61c1'
+export const sushiAddress = '0x374cb8c27130e2c9e04f44303f3c8351b9de61c1'
+export const masterChefAddress = '0x02444a8fEeaD1a2E78da0e2a157f4C7B848aB021'
+export const wethPriceAddress = '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+export const baoPriceAddress = '0xb2AaEDe065D3ede8Db0C7C25DD69B2A0d0ee4Da3'

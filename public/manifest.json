@@ -1,0 +1,15 @@
+{
+  "short_name": "Bao Finance",
+  "name": "Farm BAO, Create synthetic assets with LP tokens",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "240x240"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

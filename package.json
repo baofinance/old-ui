@@ -1,0 +1,64 @@
+{
+  "name": "yam",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/debounce": "^1.2.0",
+    "@types/jest": "^26.0.9",
+    "@types/node": "^14.0.27",
+    "@types/query-string": "^6.3.0",
+    "@types/react": "^16.9.46",
+    "bignumber.js": "^9.0.1",
+    "debounce": "^1.2.0",
+    "numeral": "^2.0.6",
+    "query-string": "^6.13.7",
+    "react": "^16.13.1",
+    "react-circular-progressbar": "^2.0.3",
+    "react-countdown": "^2.2.1",
+    "react-countup": "^4.3.3",
+    "react-device-detect": "^1.14.0",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.1.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.1",
+    "typescript": "^3.9.7",
+    "use-wallet": "^0.8.0",
+    "web3": "^1.2.11",
+    "web3-utils": "^1.3.0"
+  },
+  "scripts": {
+    "start": "PORT=3004 react-scripts start",
+    "build": "CI= GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && cp ./build/index.html ./build/200.html && surge ./build sushiswap.org"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/bignumber.js": "^5.0.0",
+    "@types/numeral": "0.0.28",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.2"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "semi": false,
+    "singleQuote": true
+  }
+}
