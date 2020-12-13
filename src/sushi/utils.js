@@ -108,8 +108,6 @@ export const getTotalLPWethValue = async (
   tokenDecimals,
   pid,
 ) => {
-  const start = Date.now();
-
   const [
     tokenAmountWholeLP,
     balance,
@@ -124,7 +122,6 @@ export const getTotalLPWethValue = async (
     getPoolWeight(masterChefContract, pid)
   ]);
 
-    console.log(`query time ${Date.now() - start}ms`, tokenContract.options.address);
   // Return p1 * w1 * 2
   const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
   const lpWethWorth = new BigNumber(lpContractWeth)
