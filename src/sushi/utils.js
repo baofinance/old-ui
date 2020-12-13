@@ -85,10 +85,11 @@ export const getFarms = (sushi) => {
 }
 
 export const getPoolWeight = async (masterChefContract, pid) => {
-  const { allocPoint } = await masterChefContract.methods.poolInfo(pid).call()
-  const totalAllocPoint = await masterChefContract.methods
-    .totalAllocPoint()
-    .call()
+  const [{allocPoint}, totalAllocPoint] = await Promise.all([
+    masterChefContract.methods.poolInfo(pid).call(),
+    masterChefContract.methods.totalAllocPoint().call()
+  ]);
+
   return new BigNumber(allocPoint).div(new BigNumber(totalAllocPoint))
 }
 
