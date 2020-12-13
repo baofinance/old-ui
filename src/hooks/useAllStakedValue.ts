@@ -28,7 +28,7 @@ const useAllStakedValue = () => {
   const sushi = useSushi()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
-  const wethContact = getWethContract(sushi)
+  const wethContract = getWethContract(sushi)
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
@@ -38,16 +38,19 @@ const useAllStakedValue = () => {
           pid,
           lpContract,
           tokenContract,
+          tokenDecimals
         }: {
           pid: number
           lpContract: Contract
-          tokenContract: Contract
+          tokenContract: Contract,
+          tokenDecimals: number
         }) =>
           getTotalLPWethValue(
             masterChefContract,
-            wethContact,
+            wethContract,
             lpContract,
             tokenContract,
+            tokenDecimals,
             pid,
           ),
       ),

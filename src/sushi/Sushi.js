@@ -1,10 +1,18 @@
 import Web3 from 'web3'
 import BigNumber from 'bignumber.js'
-import { Contracts } from './lib/contracts.js'
-import { Account } from './lib/accounts.js'
-import { EVM } from './lib/evm.js'
+import {
+  Contracts
+} from './lib/contracts.js'
+import {
+  Account
+} from './lib/accounts.js'
+import {
+  EVM
+} from './lib/evm.js'
 
-import { contractAddresses } from './lib/constants'
+import {
+  contractAddresses
+} from './lib/constants'
 
 export class Sushi {
   constructor(provider, networkId, testing, options) {
@@ -40,21 +48,9 @@ export class Sushi {
     this.sushiAddress = contractAddresses.sushi[networkId]
     this.masterChefAddress = contractAddresses.masterChef[networkId]
     this.wethAddress = contractAddresses.weth[networkId]
-	this.wethPriceAddress = contractAddresses.wethPrice[networkId]
-	this.baoPriceAddress = contractAddresses.baoPrice[networkId]
-	console.log([networkId])
-	console.log(contractAddresses.sushi[networkId])
-	console.log(contractAddresses.masterChef[networkId])
-	console.log(contractAddresses.weth[networkId])
-	console.log(contractAddresses.weth[networkId])
-	console.log(contractAddresses.wethPrice[networkId])
-	console.log(contractAddresses.baoPrice[networkId])
-	console.log("---")
-	console.log(this.sushiAddress)
-	console.log(this.masterChefAddress)
-	console.log(this.wethAddress)
-	console.log(this.wethPriceAddress)
-	console.log(this.baoPriceAddress)
+    this.wethPriceAddress = contractAddresses.wethPrice[networkId]
+    this.baoPriceAddress = contractAddresses.baoPrice[networkId]
+    console.log(`network Id: ${networkId}`, contractAddresses)
   }
 
   async resetEVM() {
