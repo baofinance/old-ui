@@ -1,3 +1,5 @@
+![GitHub Super-Linter](https://github.com/baofinance/ui/workflows/Lint%20Code%20Base/badge.svg)]
+
 # BAO Finance UI
 This is the [BAO.finance](https://bao.finance) UI project. 
 
