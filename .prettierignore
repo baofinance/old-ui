@@ -1,0 +1,9 @@
+node_modules/
+build/
+public/
+workers-site/
+package.json
+yarn.lock
+package-lock.json
+.*
+tsconfig.json

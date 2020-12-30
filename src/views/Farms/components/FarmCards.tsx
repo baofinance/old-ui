@@ -1,9 +1,10 @@
 import BigNumber from 'bignumber.js'
 import React, { useEffect, useState } from 'react'
-import Countdown, { CountdownRenderProps } from 'react-countdown'
+import Countdown from 'react-countdown'
+import type { CountdownRenderProps } from 'react-countdown'
 import styled, { keyframes } from 'styled-components'
 import { useWallet } from 'use-wallet'
-import Button  from '../../../components/Button'
+import Button from '../../../components/Button'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import CardIcon from '../../../components/CardIcon'
@@ -28,9 +29,7 @@ const FarmCards: React.FC = () => {
   const { account } = useWallet()
   const stakedValue = useAllStakedValue()
 
-  const sushiIndex = farms.findIndex(
-    ({ tokenSymbol }) => tokenSymbol === 'BAO',
-  )
+  const sushiIndex = farms.findIndex(({ tokenSymbol }) => tokenSymbol === 'BAO')
 
   const sushiPrice =
     sushiIndex >= 0 && stakedValue[sushiIndex]
@@ -66,7 +65,7 @@ const FarmCards: React.FC = () => {
 
   return (
     <StyledCards>
-      {!!rows[0].length ? (
+      {rows[0].length ? (
         rows.map((farmRow, i) => (
           <StyledRow key={i}>
             {farmRow.map((farm, j) => (
@@ -126,7 +125,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   }, [sushi, lpTokenAddress, account, setHarvestable])
 
   const poolActive = true // startTime * 1000 - Date.now() <= 0
-  const tokenBuy = 'Buy '+farm.tokenSymbol
+  const tokenBuy = 'Buy ' + farm.tokenSymbol
   const destination = farm.refUrl
   return (
     <StyledCardWrapper>
@@ -134,7 +133,9 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       <Card>
         <CardContent>
           <StyledContent>
-            <CardIcon><img src={farm.icon} alt="" height="50"/></CardIcon>
+            <CardIcon>
+              <img src={farm.icon} alt="" height="50" />
+            </CardIcon>
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
               <StyledDetail>Deposit {farm.lpToken.toUpperCase()}</StyledDetail>
@@ -153,12 +154,8 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 />
               )}
             </Button>
-			<Spacer />
-			<Button
-              text={tokenBuy}
-              href={destination}
-            >
-            </Button>
+            <Spacer />
+            <Button text={tokenBuy} href={destination}></Button>
             <StyledInsight>
               <span>APY</span>
               <span>

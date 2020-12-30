@@ -8,39 +8,52 @@ interface PageHeaderProps {
   title?: string
 }
 
-
-
 const PageHeader: React.FC<PageHeaderProps> = ({ icon, subtitle, title }) => {
-  var titletext = title.toString()
-  if(titletext.toString() == "BaoChef is Ready"){
-  return (
-    <Container size="sm">
-      <StyledPageHeader>
-        <StyledIcon><img src={icon} alt="" width="300" height="120"/></StyledIcon>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledSubtitle>{subtitle}</StyledSubtitle>
-      </StyledPageHeader>
-    </Container>
-  )} else if(titletext.toString() == "Select Your Fav Dim Sum Entrees!"){
-	 return (
-    <Container size="sm">
-      <StyledPageHeader>
-        <StyledIcon><img src={icon} height="125" /></StyledIcon>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledSubtitle>{subtitle}</StyledSubtitle>
-		<StyledSubtitle><br/><br/>Tip: Using the "Buy" button will take you to exchanges via the Bao affiliate links. 100% of the revenue from these goes back to the Bao treasury which Bao holders own. <br/>Using these links grows your bags!</StyledSubtitle>
-      </StyledPageHeader>
-    </Container>
-  )} else {
-	 return (
-    <Container size="sm">
-      <StyledPageHeader>
-        <StyledIcon><img src={icon} height="125" /></StyledIcon>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledSubtitle>{subtitle}</StyledSubtitle>
-      </StyledPageHeader>
-    </Container>
-  )
+  const titletext = title.toString()
+  if (titletext.toString() == 'BaoChef is Ready') {
+    return (
+      <Container size="sm">
+        <StyledPageHeader>
+          <StyledIcon>
+            <img src={icon} alt="" width="300" height="120" />
+          </StyledIcon>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledSubtitle>{subtitle}</StyledSubtitle>
+        </StyledPageHeader>
+      </Container>
+    )
+  } else if (titletext.toString() == 'Select Your Fav Dim Sum Entrees!') {
+    return (
+      <Container size="sm">
+        <StyledPageHeader>
+          <StyledIcon>
+            <img src={icon} height="125" />
+          </StyledIcon>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledSubtitle>{subtitle}</StyledSubtitle>
+          <StyledSubtitle>
+            <br />
+            <br />
+            Tip: Using the "Buy" button will take you to exchanges via the Bao
+            affiliate links. 100% of the revenue from these goes back to the Bao
+            treasury which Bao holders own. <br />
+            Using these links grows your bags!
+          </StyledSubtitle>
+        </StyledPageHeader>
+      </Container>
+    )
+  } else {
+    return (
+      <Container size="sm">
+        <StyledPageHeader>
+          <StyledIcon>
+            <img src={icon} height="125" />
+          </StyledIcon>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledSubtitle>{subtitle}</StyledSubtitle>
+        </StyledPageHeader>
+      </Container>
+    )
   }
 }
 

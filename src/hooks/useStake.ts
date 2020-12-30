@@ -8,7 +8,6 @@ import { stake, getMasterChefContract, getRefUrl } from '../sushi/utils'
 const useStake = (pid: number) => {
   const { account } = useWallet()
   const sushi = useSushi()
-  
 
   const handleStake = useCallback(
     async (amount: string) => {
@@ -17,7 +16,7 @@ const useStake = (pid: number) => {
         pid,
         amount,
         account,
-		getRefUrl(),
+        getRefUrl(),
       )
       console.log(txHash)
     },

@@ -22,7 +22,7 @@ const Farms: React.FC = () => {
   return (
     <Switch>
       <Page>
-        {!!account ? (
+        {account ? (
           <>
             <Route exact path={path}>
               <PageHeader

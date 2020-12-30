@@ -12,8 +12,13 @@ import useReward from '../../../hooks/useReward'
 import useValues from '../../../hooks/useValues'
 import useSubValues from '../../../hooks/useSubValues'
 import { getBalanceNumber } from '../../../utils/formatBalance'
-import { getWethPrice, getBaoPrice, getWethPriceContract, getBaoPriceContract } from '../../../sushi/utils'
-import {BigNumber} from 'bignumber.js'
+import {
+  getWethPrice,
+  getBaoPrice,
+  getWethPriceContract,
+  getBaoPriceContract,
+} from '../../../sushi/utils'
+import { BigNumber } from 'bignumber.js'
 import Spacer from '../../../components/Spacer'
 import useSushi from '../../../hooks/useSushi'
 import bao from '../../../assets/img/bao.png'
@@ -22,37 +27,35 @@ interface HarvestProps {
   pid: number
 }
 
-
-
 const Harvest: React.FC<HarvestProps> = ({ pid }) => {
   const earnings = useEarnings(pid)
   const locks = useLockedEarnings()
   const [pendingTx, setPendingTx] = useState(false)
   const { onReward } = useReward(pid)
   const sushi = useSushi()
-  var userInfo = useValues()
-  var userSubInfo = useSubValues()
-  
-  
+  const userInfo = useValues()
+  const userSubInfo = useSubValues()
 
   return (
     <Card>
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon><img src={bao} height={50}/></CardIcon>
+            <CardIcon>
+              <img src={bao} height={50} />
+            </CardIcon>
             <Value value={getBalanceNumber(earnings)} />
             <Label text="BAO Earned" />
-			</StyledCardHeader>
-			<Spacer />
-			<StyledCardHeader>
-			<Value value={getBalanceNumber(locks)} />
-			<Label text="Locked Bao" />
-			<Spacer />
-			</StyledCardHeader>
-			<Label text={userInfo}/>
-			<Spacer />
-			<Label text={userSubInfo} />
+          </StyledCardHeader>
+          <Spacer />
+          <StyledCardHeader>
+            <Value value={getBalanceNumber(locks)} />
+            <Label text="Locked Bao" />
+            <Spacer />
+          </StyledCardHeader>
+          <Label text={userInfo} />
+          <Spacer />
+          <Label text={userSubInfo} />
           <StyledCardActions>
             <Button
               disabled={!earnings.toNumber() || pendingTx}

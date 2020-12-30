@@ -23,7 +23,7 @@ const Farm: React.FC = () => {
     earnToken,
     name,
     icon,
-	refUrl,
+    refUrl,
   } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
@@ -32,9 +32,9 @@ const Farm: React.FC = () => {
     earnToken: '',
     name: '',
     icon: '',
-	refUrl: '',
+    refUrl: '',
   }
-  
+
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -51,13 +51,11 @@ const Farm: React.FC = () => {
   const lpTokenName = useMemo(() => {
     return lpToken.toUpperCase()
   }, [lpToken])
-  
-  
 
   const earnTokenName = useMemo(() => {
     return earnToken.toUpperCase()
   }, [earnToken])
-  
+
   return (
     <>
       <PageHeader

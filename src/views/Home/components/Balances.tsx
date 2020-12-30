@@ -14,7 +14,12 @@ import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply, getReferrals, getMasterChefContract} from '../../../sushi/utils'
+import {
+  getSushiAddress,
+  getSushiSupply,
+  getReferrals,
+  getMasterChefContract,
+} from '../../../sushi/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
@@ -24,7 +29,7 @@ const PendingRewards: React.FC = () => {
 
   const allEarnings = useAllEarnings()
   let sumEarning = 0
-  for (let earning of allEarnings) {
+  for (const earning of allEarnings) {
     sumEarning += new BigNumber(earning)
       .div(new BigNumber(10).pow(18))
       .toNumber()
@@ -78,9 +83,6 @@ const Balances: React.FC = () => {
   const masterChefContract = getMasterChefContract(sushi)
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
-  
-  	  
-	 
   useEffect(() => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi)
@@ -90,7 +92,7 @@ const Balances: React.FC = () => {
       fetchTotalSupply()
     }
   }, [sushi, setTotalSupply])
-  
+
   useEffect(() => {
     async function fetchTotalReferrals() {
       const referrals = await getReferrals(masterChefContract, account)
@@ -100,82 +102,82 @@ const Balances: React.FC = () => {
       fetchTotalReferrals()
     }
   }, [sushi, setTotalReferrals])
-  
+
   useEffect(() => {
-	  async function fetchRefLink(){
-	    const usrReflink = 'www.bao.finance?ref='+account
-		setRefLink(usrReflink)
-	  }
-	if (sushi) {
-	   fetchRefLink()
-	}
+    async function fetchRefLink() {
+      const usrReflink = 'www.bao.finance?ref=' + account
+      setRefLink(usrReflink)
+    }
+    if (sushi) {
+      fetchRefLink()
+    }
   }, [sushi, setRefLink])
 
   return (
-  <Fragment>
-    <StyledWrapper>
-      <Card>
-        <CardContent>
-          <StyledBalances>
-            <StyledBalance>
-              <SushiIcon />
-              <Spacer />
-              <div style={{ flex: 1 }}>
-                <Label text="Your BAO Balance" />
-                <Value
-                  value={!!account ? getBalanceNumber(sushiBalance) : 'Locked'}
-                />
-				
-              </div>
-            </StyledBalance>
-          </StyledBalances>
-        </CardContent>
-        <Footnote>
-          Pending harvest
-          <FootnoteValue>
-            <PendingRewards /> BAO
-          </FootnoteValue>
-        </Footnote>
-      </Card>
-      <Spacer />
+    <Fragment>
+      <StyledWrapper>
+        <Card>
+          <CardContent>
+            <StyledBalances>
+              <StyledBalance>
+                <SushiIcon />
+                <Spacer />
+                <div style={{ flex: 1 }}>
+                  <Label text="Your BAO Balance" />
+                  <Value
+                    value={account ? getBalanceNumber(sushiBalance) : 'Locked'}
+                  />
+                </div>
+              </StyledBalance>
+            </StyledBalances>
+          </CardContent>
+          <Footnote>
+            Pending harvest
+            <FootnoteValue>
+              <PendingRewards /> BAO
+            </FootnoteValue>
+          </Footnote>
+        </Card>
+        <Spacer />
 
-      <Card>
-        <CardContent>
-          <Label text="Total BAO Supply" />
-          <Value
-            value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
-          />
-        </CardContent>
-        <Footnote>
-          New rewards per block
-          <FootnoteValue>1,000 BAO</FootnoteValue>
-        </Footnote>
-      </Card>
-    </StyledWrapper>
-	 <Spacer />
-	  <Spacer />
-	 <StyledWrapper>
-	 <Card>
-        <CardContent>
-          <Label text="Your Referral Link:
-		  " />
-          <Label
-            text={!!account ? refLink : ''}
-          /><br />
-		  <Label text="
+        <Card>
+          <CardContent>
+            <Label text="Total BAO Supply" />
+            <Value
+              value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
+            />
+          </CardContent>
+          <Footnote>
+            New rewards per block
+            <FootnoteValue>1,000 BAO</FootnoteValue>
+          </Footnote>
+        </Card>
+      </StyledWrapper>
+      <Spacer />
+      <Spacer />
+      <StyledWrapper>
+        <Card>
+          <CardContent>
+            <Label
+              text="Your Referral Link:
+		  "
+            />
+            <Label text={account ? refLink : ''} />
+            <br />
+            <Label
+              text="
 		  Your Referrals:
-		  " />
-				<Label
-					text={!!account ? totalReferrals : 'Referrals'}
-					/>
-        </CardContent>
-        <Footnote>
-          Earn future rewards from referrals
-          <FootnoteValue></FootnoteValue>
-        </Footnote>
-      </Card>
-	</StyledWrapper>
-	</Fragment>
+		  "
+            />
+            <Label text={account ? totalReferrals : 'Referrals'} />
+          </CardContent>
+          <Footnote>
+            Earn future rewards from referrals
+            <FootnoteValue></FootnoteValue>
+          </Footnote>
+        </Card>
+      </StyledWrapper>
+    </Fragment>
   )
 }
 

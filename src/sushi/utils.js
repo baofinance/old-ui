@@ -35,7 +35,6 @@ export const getWethContract = (sushi) => {
 
 export const getWethPriceContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.wethPrice
-  console.log(sushi.contracts.wethPrice)
 }
 
 export const getBaoPriceContract = (sushi) => {
@@ -63,7 +62,7 @@ export const getFarms = (sushi) => {
           tokenContract,
           lpAddress,
           lpContract,
-		  refUrl,
+          refUrl,
         }) => ({
           pid,
           id: symbol,
@@ -78,17 +77,17 @@ export const getFarms = (sushi) => {
           earnToken: 'BAO',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
-		  refUrl,
+          refUrl,
         }),
       )
     : []
 }
 
 export const getPoolWeight = async (masterChefContract, pid) => {
-  const [{allocPoint}, totalAllocPoint] = await Promise.all([
+  const [{ allocPoint }, totalAllocPoint] = await Promise.all([
     masterChefContract.methods.poolInfo(pid).call(),
-    masterChefContract.methods.totalAllocPoint().call()
-  ]);
+    masterChefContract.methods.totalAllocPoint().call(),
+  ])
 
   return new BigNumber(allocPoint).div(new BigNumber(totalAllocPoint))
 }
@@ -114,14 +113,14 @@ export const getTotalLPWethValue = async (
     balance,
     totalSupply,
     lpContractWeth,
-    poolWeight
+    poolWeight,
   ] = await Promise.all([
     tokenContract.methods.balanceOf(lpContract.options.address).call(),
     lpContract.methods.balanceOf(masterChefContract.options.address).call(),
     lpContract.methods.totalSupply().call(),
     wethContract.methods.balanceOf(lpContract.options.address).call(),
-    getPoolWeight(masterChefContract, pid)
-  ]);
+    getPoolWeight(masterChefContract, pid),
+  ])
 
   // Return p1 * w1 * 2
   const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
@@ -140,7 +139,7 @@ export const getTotalLPWethValue = async (
     wethAmount,
     totalWethValue: totalLpWethValue.div(new BigNumber(10).pow(18)),
     tokenPriceInWeth: wethAmount.div(tokenAmount),
-    poolWeight: poolWeight
+    poolWeight: poolWeight,
   }
 }
 
@@ -150,15 +149,9 @@ export const approve = async (lpContract, masterChefContract, account) => {
     .send({ from: account })
 }
 
-
-
 export const stake = async (masterChefContract, pid, amount, account, ref) => {
   return masterChefContract.methods
-    .deposit(
-      pid,
-      ethers.utils.parseUnits(amount, 18),
-	  ref,
-    )
+    .deposit(pid, ethers.utils.parseUnits(amount, 18), ref)
     .send({ from: account })
     .on('transactionHash', (tx) => {
       console.log(tx)
@@ -166,13 +159,15 @@ export const stake = async (masterChefContract, pid, amount, account, ref) => {
     })
 }
 
-export const unstake = async (masterChefContract, pid, amount, account, ref) => {
+export const unstake = async (
+  masterChefContract,
+  pid,
+  amount,
+  account,
+  ref,
+) => {
   return masterChefContract.methods
-    .withdraw(
-      pid,
-      ethers.utils.parseUnits(amount, 18),
-	  ref,
-    )
+    .withdraw(pid, ethers.utils.parseUnits(amount, 18), ref)
     .send({ from: account })
     .on('transactionHash', (tx) => {
       console.log(tx)
@@ -201,19 +196,17 @@ export const getStaked = async (masterChefContract, pid, account) => {
 }
 
 export const getWethPrice = async (sushi) => {
-	console.log(sushi)
-    const amount = await sushi.contracts.wethPrice.methods
-      .latestAnswer()
-      .call()
-    return new BigNumber(amount)
+  console.log(sushi)
+  const amount = await sushi.contracts.wethPrice.methods.latestAnswer().call()
+  return new BigNumber(amount)
 }
 
 export const getBaoPrice = async (sushi) => {
-	const addr = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-    const amount = await sushi.contracts.baoPrice.methods
-      .consult(addr.toString(), 1)
-      .call()
-    return new BigNumber(amount)
+  const addr = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
+  const amount = await sushi.contracts.baoPrice.methods
+    .consult(addr.toString(), 1)
+    .call()
+  return new BigNumber(amount)
 }
 
 export const getSushiSupply = async (sushi) => {
@@ -221,22 +214,18 @@ export const getSushiSupply = async (sushi) => {
 }
 
 export const getReferrals = async (masterChefContract, account) => {
-	return (await masterChefContract.methods.getGlobalRefAmount(account).call())
+  return await masterChefContract.methods.getGlobalRefAmount(account).call()
 }
 
-export function getRefUrl(){
-	var refer = "0x0000000000000000000000000000000000000000"
-	const queryString = window.location.search
-	const urlParams = new URLSearchParams(queryString)
-	if(urlParams.has('ref')){
-		var refer = urlParams.get('ref')
-		console.log(refer);
-	} else {
-		var refer = "0x0000000000000000000000000000000000000000"
-		console.log(refer);
-	}
+export function getRefUrl() {
+  var refer = '0x0000000000000000000000000000000000000000'
+  const urlParams = new URLSearchParams(window.location.search)
+  if (urlParams.has('ref')) {
+    refer = urlParams.get('ref')
+  }
+  console.log(refer)
 
- return refer
+  return refer
 }
 
 export const redeem = async (masterChefContract, account) => {

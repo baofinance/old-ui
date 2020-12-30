@@ -36,3 +36,21 @@ yarn start
 To install all development dependencies of the project and start the development react server. This will compile the TSX/JSX files into a JS bundle and ensure that you have hot-reloading for any code changes. 
 
 The development server will start by default on port 3004, but that can be changed based on your preferences.
+
+#### Linting
+Before your PR can be reviewed by a human, you have to pass the code standards. We utilize eslint and a few other plugins to automate this process. 
+
+To autofix your code to match our standards you can run
+```
+npm run lint-fix
+```
+
+This should be able to fix MOST errors, and will also be able to tell you what errors/warnings it was unable to fix. 
+
+You can run just the linting process by running
+
+```
+npm run lint
+```
+
+This will automatically be run as part of the CI pipeline when you open a PR. The PR can not be merged until all these have been sorted out.

@@ -61,9 +61,11 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           }}
         />
       </ModalActions>
-	  <ModalContent>
-	  {"Remember the longer you stay in a pool the lower your fee. Read the docs for details, but most users will want to stay in a pool 5 days or longer."}
-	  </ModalContent>
+      <ModalContent>
+        {
+          'Remember the longer you stay in a pool the lower your fee. Read the docs for details, but most users will want to stay in a pool 5 days or longer.'
+        }
+      </ModalContent>
     </Modal>
   )
 }

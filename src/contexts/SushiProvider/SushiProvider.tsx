@@ -22,15 +22,12 @@ const SushiProvider: React.FC = ({ children }) => {
   const { ethereum }: { ethereum: any } = useWallet()
   const [sushi, setSushi] = useState<any>()
 
-  // @ts-ignore
   window.sushi = sushi
-  // @ts-ignore
-
 
   useEffect(() => {
     if (ethereum) {
       const chainId = Number(ethereum.chainId)
-	  console.log(chainId)
+      console.log(chainId)
       const sushiLib = new Sushi(ethereum, chainId, false, {
         defaultAccount: ethereum.selectedAddress,
         defaultConfirmations: 1,
@@ -41,7 +38,7 @@ const SushiProvider: React.FC = ({ children }) => {
         accounts: [],
         ethereumNodeTimeout: 10000,
       })
-	  console.log(sushiLib)
+      console.log(sushiLib)
       setSushi(sushiLib)
       window.sushisauce = sushiLib
     }

@@ -17,7 +17,7 @@ const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   return (
     <StyledButton disabled={disabled} onClick={onClick}>
-      {!!to ? <StyledLink to={to}>{children}</StyledLink> : children}
+      {to ? <StyledLink to={to}>{children}</StyledLink> : children}
     </StyledButton>
   )
 }

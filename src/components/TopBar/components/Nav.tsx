@@ -6,30 +6,36 @@ const queryString = window.location.search
 
 const urlParams = new URLSearchParams(queryString)
 
-let refer: any = urlParams.get('ref');
+const refer: any = urlParams.get('ref')
 
 const Nav: React.FC = () => {
   return (
     <StyledNav>
-      <StyledLink exact activeClassName="active" to={{pathname: '/', search: "?ref=" + refer}}>
+      <StyledLink
+        exact
+        activeClassName="active"
+        to={{ pathname: '/', search: '?ref=' + refer }}
+      >
         Home
       </StyledLink>
-      <StyledLink exact activeClassName="active" to={{pathname: '/farms', search: "?ref=" + refer}}>
+      <StyledLink
+        exact
+        activeClassName="active"
+        to={{ pathname: '/farms', search: '?ref=' + refer }}
+      >
         Menu
       </StyledLink>
-      <StyledLink exact activeClassName="active" to={{pathname: '/staking', search: "?ref=" + refer}}>
+      <StyledLink
+        exact
+        activeClassName="active"
+        to={{ pathname: '/staking', search: '?ref=' + refer }}
+      >
         Staking
       </StyledLink>
-      <StyledAbsoluteLink
-        href="https://docs.bao.finance"
-        target="_blank"
-      >
+      <StyledAbsoluteLink href="https://docs.bao.finance" target="_blank">
         About
       </StyledAbsoluteLink>
-	  <StyledAbsoluteLink
-        href="https://docs.bao.finance"
-        target="_blank"
-      >
+      <StyledAbsoluteLink href="https://docs.bao.finance" target="_blank">
         FAQ
       </StyledAbsoluteLink>
     </StyledNav>

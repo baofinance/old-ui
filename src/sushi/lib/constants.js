@@ -231,7 +231,7 @@ export const addressMap = {
   RAMP: '0x33d0568941c0c64ff7e0fb4fba0b11bd37deed9f',
   SYN: '0x1695936d6a953df699c38ca21c2140d497c08bd9',
   BASE: '0x07150e919b4de5fd6a63de1f9384828396f25fdc',
-  BADGER: '0x3472a5a71965499acd81997a54bba8d852c6e53d'
+  BADGER: '0x3472a5a71965499acd81997a54bba8d852c6e53d',
 }
 
 export const contractAddresses = {
@@ -254,7 +254,7 @@ export const contractAddresses = {
   baoPrice: {
     1: '0xb2AaEDe065D3ede8Db0C7C25DD69B2A0d0ee4Da3',
     4: '0x649AfCf002742cf93CbE1F8C3832FD05ACA2D8ea',
-  }
+  },
 }
 //
 /*
@@ -275,7 +275,8 @@ BAO Address on mainnet for reference
 12 SUSHI 0xce84867c3c02b05dc570d0135103d3fb9cc19433
 */
 
-export const supportedPools = [{
+export const supportedPools = [
+  {
     pid: 0,
     lpAddresses: {
       1: '0x9973bb0fe5f8df5de730776df09e946c74254fb3',
@@ -288,7 +289,8 @@ export const supportedPools = [{
     symbol: 'BAO-ETH UNIV2',
     tokenSymbol: 'BAO',
     icon: '/bao.png',
-    refUrl: 'https://app.uniswap.org/#/swap?inputCurrency=0x374cb8c27130e2c9e04f44303f3c8351b9de61c1&outputCurrency=ETH',
+    refUrl:
+      'https://app.uniswap.org/#/swap?inputCurrency=0x374cb8c27130e2c9e04f44303f3c8351b9de61c1&outputCurrency=ETH',
   },
   {
     pid: 1,
@@ -363,7 +365,8 @@ export const supportedPools = [{
     symbol: 'cDAI-ETH UNIV2',
     tokenSymbol: 'cDAI',
     icon: '/wrap-double.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/cDAI',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/cDAI',
   },
   {
     pid: 6,
@@ -378,7 +381,7 @@ export const supportedPools = [{
     symbol: 'OKB-ETH UNIV2',
     tokenSymbol: 'OKB',
     icon: '/okra.png',
-    refUrl: 'https://ftx.com/trade/OKB/USD#a=createtrade'
+    refUrl: 'https://ftx.com/trade/OKB/USD#a=createtrade',
   },
   {
     pid: 7,
@@ -408,7 +411,8 @@ export const supportedPools = [{
     symbol: 'DAI-ETH UNIV2',
     tokenSymbol: 'DAI',
     icon: '/egg-tart.png',
-    refUrl: 'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+    refUrl:
+      'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
   },
   {
     pid: 9,
@@ -828,7 +832,8 @@ export const supportedPools = [{
     symbol: 'ANT-ETH UNIV2',
     tokenSymbol: 'ANT',
     icon: '/apple-chocolate.png',
-    refUrl: 'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+    refUrl:
+      'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
   },
   {
     pid: 37,
@@ -888,7 +893,8 @@ export const supportedPools = [{
     symbol: 'yUSD-ETH UNIV2',
     tokenSymbol: 'yUSD',
     icon: '/churros.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/yyCurve',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/yyCurve',
   },
   {
     pid: 41,
@@ -1008,7 +1014,8 @@ export const supportedPools = [{
     symbol: 'wFIL-USDC BAO',
     tokenSymbol: 'wFIL',
     icon: '/crab.png',
-    refUrl: 'https://app.uniswap.org/#/swap?inputCurrency=0x6e1a19f235be7ed8e3369ef73b196c07257494de&outputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+    refUrl:
+      'https://app.uniswap.org/#/swap?inputCurrency=0x6e1a19f235be7ed8e3369ef73b196c07257494de&outputCurrency=0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
   },
   {
     pid: 49,
@@ -1173,7 +1180,8 @@ export const supportedPools = [{
     symbol: 'c0x-ETH UNIV2',
     tokenSymbol: 'c0x',
     icon: '/bacon.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/cZRX',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/cZRX',
   },
   {
     pid: 60,
@@ -1188,7 +1196,8 @@ export const supportedPools = [{
     symbol: 'RPL-ETH UNIV2',
     tokenSymbol: 'RPL',
     icon: '/caviar.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RPL'
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RPL',
   },
   {
     pid: 61,
@@ -1203,7 +1212,8 @@ export const supportedPools = [{
     symbol: 'STORJ-ETH UNIV2',
     tokenSymbol: 'STORJ',
     icon: '/xiao-long-bao.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/STORJ',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/STORJ',
   },
   {
     pid: 62,
@@ -1278,7 +1288,8 @@ export const supportedPools = [{
     symbol: 'AGI-ETH UNIV2',
     tokenSymbol: 'AGI',
     icon: '/avocado.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/AGI',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/AGI',
   },
   {
     pid: 67,
@@ -1323,7 +1334,8 @@ export const supportedPools = [{
     symbol: 'DNT-ETH UNIV2',
     tokenSymbol: 'DNT',
     icon: '/sausage.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DNT',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DNT',
   },
   {
     pid: 70,
@@ -1398,7 +1410,8 @@ export const supportedPools = [{
     symbol: 'wZEC-USDC BAO',
     tokenSymbol: 'ZB',
     icon: '/zhaziji.png',
-    refUrl: 'https://app.uniswap.org/#/swap?inputCurrency=0x4a64515e5e1d1073e83f30cb97bed20400b66e10',
+    refUrl:
+      'https://app.uniswap.org/#/swap?inputCurrency=0x4a64515e5e1d1073e83f30cb97bed20400b66e10',
   },
   {
     pid: 75,
@@ -1413,7 +1426,8 @@ export const supportedPools = [{
     symbol: 'CORE-ETH UNIV2',
     tokenSymbol: 'CORE',
     icon: '/buns.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/CORE',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/CORE',
   },
   {
     pid: 76,
@@ -1473,7 +1487,7 @@ export const supportedPools = [{
     symbol: 'BTMX-ETH UNIV2',
     tokenSymbol: 'BTMX',
     icon: '/boloubao.png',
-    urlRef: 'https://ftx.com/trade/BTMX-PERP#a=createtrade'
+    urlRef: 'https://ftx.com/trade/BTMX-PERP#a=createtrade',
   },
   {
     pid: 80,
@@ -1488,7 +1502,8 @@ export const supportedPools = [{
     symbol: 'LPT-ETH UNIV2',
     tokenSymbol: 'LPT',
     icon: '/jerk-chicken.png',
-    urlRef: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/LPT',
+    urlRef:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/LPT',
   },
   {
     pid: 81,
@@ -1518,7 +1533,8 @@ export const supportedPools = [{
     symbol: 'ENG-ETH UNIV2',
     tokenSymbol: 'ENG',
     icon: '/mysterystew.png',
-    urlRef: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ENG/ETH',
+    urlRef:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ENG/ETH',
   },
   {
     pid: 83,
@@ -1668,7 +1684,7 @@ export const supportedPools = [{
     symbol: 'CREAM-ETH UNIV2',
     tokenSymbol: 'CREAM',
     icon: '/groceries.png',
-    refUrl: 'https://ftx.com/trade/CREAM-PERP#a=createtrade'
+    refUrl: 'https://ftx.com/trade/CREAM-PERP#a=createtrade',
   },
   {
     pid: 93,
@@ -1698,7 +1714,8 @@ export const supportedPools = [{
     symbol: 'tBTC-ETH UNIV2',
     tokenSymbol: 'tBTC',
     icon: '/taro.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/tBTC',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/tBTC',
   },
   {
     pid: 95,
@@ -1818,7 +1835,8 @@ export const supportedPools = [{
     symbol: 'AST-ETH UNIV2',
     tokenSymbol: 'AST',
     icon: '/red-bean-paste.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/AST',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/AST',
   },
   {
     pid: 103,
@@ -1833,7 +1851,8 @@ export const supportedPools = [{
     symbol: 'DUSD-ETH UNIV2',
     tokenSymbol: 'DUSD',
     icon: '/djaleung.png',
-    refUrl: 'https://balancer.exchange/#/swap/ether/0x5bc25f649fc4e26069ddf4cf4010f9f706c23831',
+    refUrl:
+      'https://balancer.exchange/#/swap/ether/0x5bc25f649fc4e26069ddf4cf4010f9f706c23831',
   },
   {
     pid: 104,
@@ -1878,7 +1897,7 @@ export const supportedPools = [{
     symbol: 'DMG-ETH UNIV2',
     tokenSymbol: 'DMG',
     icon: '/sushi.png',
-    refUrl: 'https://ftx.com/trade/DMG-PERP#a=createtrade'
+    refUrl: 'https://ftx.com/trade/DMG-PERP#a=createtrade',
   },
   {
     pid: 107,
@@ -2103,7 +2122,8 @@ export const supportedPools = [{
     symbol: 'APY-ETH UNIV2',
     tokenSymbol: 'APY',
     icon: '/yanpi.png',
-    refUrl: 'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+    refUrl:
+      'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
   },
   {
     pid: 122,
@@ -2133,7 +2153,8 @@ export const supportedPools = [{
     symbol: 'DHT-ETH UNIV2',
     tokenSymbol: 'DHT',
     icon: '/rice-bowl.png',
-    refUrl: 'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+    refUrl:
+      'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
   },
   {
     pid: 124,
@@ -2223,7 +2244,8 @@ export const supportedPools = [{
     symbol: 'DFD-ETH UNIV2',
     tokenSymbol: 'DFD',
     icon: '/profiterole.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DFD/ETH'
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DFD/ETH',
   },
   {
     pid: 130,
@@ -2238,7 +2260,8 @@ export const supportedPools = [{
     symbol: 'BLT-ETH UNIV2',
     tokenSymbol: 'BLT',
     icon: '/blt.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BLT/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BLT/ETH',
   },
   {
     pid: 131,
@@ -2253,7 +2276,8 @@ export const supportedPools = [{
     symbol: 'SLP-ETH UNIV2',
     tokenSymbol: 'SLP',
     icon: '/sweet-tofu.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/SLP',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/SLP',
   },
   {
     pid: 132,
@@ -2268,7 +2292,8 @@ export const supportedPools = [{
     symbol: 'HYDRO-ETH UNIV2',
     tokenSymbol: 'HYDRO',
     icon: '/herbal-tea.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HYDRO/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HYDRO/ETH',
   },
   {
     pid: 133,
@@ -2283,7 +2308,8 @@ export const supportedPools = [{
     symbol: 'KRL-ETH UNIV2',
     tokenSymbol: 'KRL',
     icon: '/krill.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/KRL/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/KRL/ETH',
   },
   {
     pid: 134,
@@ -2298,7 +2324,8 @@ export const supportedPools = [{
     symbol: 'RSV-ETH UNIV2',
     tokenSymbol: 'RSV',
     icon: '/radish-cake.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RSV/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RSV/ETH',
   },
   {
     pid: 135,
@@ -2328,7 +2355,8 @@ export const supportedPools = [{
     symbol: 'ADEL-ETH UNIV2',
     tokenSymbol: 'ADEL',
     icon: '/brochette.png',
-    refUrl: 'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
+    refUrl:
+      'https://www.aex.plus/page/m_regist.html#/?invite_code=765759&invite_type=10',
   },
   {
     pid: 137,
@@ -2343,7 +2371,8 @@ export const supportedPools = [{
     symbol: 'SOCKS-ETH UNIV2',
     tokenSymbol: 'SOCKS',
     icon: '/socks.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/SOCKS/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/SOCKS/ETH',
   },
   {
     pid: 138,
@@ -2358,7 +2387,8 @@ export const supportedPools = [{
     symbol: 'WAR-ETH UNIV2',
     tokenSymbol: 'WAR',
     icon: '/wonton.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WAR/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WAR/ETH',
   },
   {
     pid: 139,
@@ -2373,7 +2403,8 @@ export const supportedPools = [{
     symbol: '0XBTC-ETH UNIV2',
     tokenSymbol: 'OXBTC',
     icon: '/luosifen.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/0xBTC/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/0xBTC/ETH',
   },
   {
     pid: 140,
@@ -2388,7 +2419,8 @@ export const supportedPools = [{
     symbol: 'DONUT-ETH UNIV2',
     tokenSymbol: 'DONUT',
     icon: '/donut.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DONUT',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DONUT',
   },
   {
     pid: 141,
@@ -2403,7 +2435,8 @@ export const supportedPools = [{
     symbol: 'TTT-ETH UNIV2',
     tokenSymbol: 'TTT',
     icon: '/tangyuan.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/TTT/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/TTT/ETH',
   },
   {
     pid: 142,
@@ -2478,7 +2511,8 @@ export const supportedPools = [{
     symbol: 'OCTO-ETH UNIV2',
     tokenSymbol: 'OCTO',
     icon: '/octopus.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/OCTO/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/OCTO/ETH',
   },
   {
     pid: 147,
@@ -2523,7 +2557,8 @@ export const supportedPools = [{
     symbol: 'RGT-ETH UNIV2',
     tokenSymbol: 'RGT',
     icon: '/stew2.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RGT/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RGT/ETH',
   },
   {
     pid: 150,
@@ -2538,7 +2573,8 @@ export const supportedPools = [{
     symbol: 'SEED-ETH UNIV2',
     tokenSymbol: 'SEED',
     icon: '/sesame.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/SEED/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/SEED/ETH',
   },
   {
     pid: 151,
@@ -2553,7 +2589,8 @@ export const supportedPools = [{
     symbol: 'WG0-ETH UNIV2',
     tokenSymbol: 'WG0',
     icon: '/wg0_logo.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WG0/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WG0/ETH',
   },
   {
     pid: 152,
@@ -2568,7 +2605,8 @@ export const supportedPools = [{
     symbol: 'WOA-ETH UNIV2',
     tokenSymbol: 'WOA',
     icon: '/WOA_logo.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WOA/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WOA/ETH',
   },
   {
     pid: 153,
@@ -2598,7 +2636,8 @@ export const supportedPools = [{
     symbol: 'BEST-ETH UNIV2',
     tokenSymbol: 'BEST',
     icon: '/panda.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BEST/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BEST/ETH',
   },
   {
     pid: 155,
@@ -2628,7 +2667,8 @@ export const supportedPools = [{
     symbol: 'HEZ-ETH UNIV2',
     tokenSymbol: 'HEZ',
     icon: '/jifan.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HEZ/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HEZ/ETH',
   },
   {
     pid: 157,
@@ -2658,7 +2698,8 @@ export const supportedPools = [{
     symbol: 'ENCORE-ETH UNIV2',
     tokenSymbol: 'ENCORE',
     icon: '/egg-tart.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ENCORE/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ENCORE/ETH',
   },
   {
     pid: 159,
@@ -2673,7 +2714,8 @@ export const supportedPools = [{
     symbol: 'YFIM-ETH UNIV2',
     tokenSymbol: 'YFIM',
     icon: '/sheep.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/YFIM/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/YFIM/ETH',
   },
   {
     pid: 160,
@@ -2688,7 +2730,8 @@ export const supportedPools = [{
     symbol: 'ORO-ETH UNIV2',
     tokenSymbol: 'ORO',
     icon: '/rice.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ORO/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ORO/ETH',
   },
   {
     pid: 161,
@@ -2703,7 +2746,8 @@ export const supportedPools = [{
     symbol: 'XOR-ETH UNIV2',
     tokenSymbol: 'XOR',
     icon: '/dumplings.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/XOR/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/XOR/ETH',
   },
   {
     pid: 162,
@@ -2793,7 +2837,8 @@ export const supportedPools = [{
     symbol: 'RMPL-ETH UNIV2',
     tokenSymbol: 'KEEP',
     icon: '/brownie.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RMPL/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/RMPL/ETH',
   },
   {
     pid: 168,
@@ -2808,7 +2853,8 @@ export const supportedPools = [{
     symbol: 'OWL-ETH UNIV2',
     tokenSymbol: 'OWL',
     icon: '/oyster.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/OWL_1/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/OWL_1/ETH',
   },
   {
     pid: 169,
@@ -2868,7 +2914,8 @@ export const supportedPools = [{
     symbol: 'CHARTEX-ETH UNIV2',
     tokenSymbol: 'CHARTEX',
     icon: '/curry.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/CHART/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/CHART/ETH',
   },
   {
     pid: 173,
@@ -2958,7 +3005,8 @@ export const supportedPools = [{
     symbol: 'HAUT-ETH UNIV2',
     tokenSymbol: 'HAUT',
     icon: '/haut.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HAUT/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/HAUT/ETH',
   },
   {
     pid: 179,
@@ -2973,7 +3021,8 @@ export const supportedPools = [{
     symbol: 'ALMX-ETH UNIV2',
     tokenSymbol: 'ALMX',
     icon: '/Almace.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ALMX/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ALMX/ETH',
   },
   {
     pid: 180,
@@ -2988,7 +3037,8 @@ export const supportedPools = [{
     symbol: 'CANDY-ETH UNIV2',
     tokenSymbol: 'CANDY',
     icon: '/Skull.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/CANDY/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/CANDY/ETH',
   },
   {
     pid: 181,
@@ -3003,7 +3053,8 @@ export const supportedPools = [{
     symbol: 'COKE-ETH UNIV2',
     tokenSymbol: 'COKE',
     icon: '/coke.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/COKE/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/COKE/ETH',
   },
   {
     pid: 182,
@@ -3018,7 +3069,8 @@ export const supportedPools = [{
     symbol: 'BUGS-ETH UNIV2',
     tokenSymbol: 'BUGS',
     icon: '/starbugs.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BUGS/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/BUGS/ETH',
   },
   {
     pid: 183,
@@ -3063,7 +3115,8 @@ export const supportedPools = [{
     symbol: 'WVG0-ETH UNIV2',
     tokenSymbol: 'WVG0',
     icon: '/wvg0.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WVG0/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/WVG0/ETH',
   },
   {
     pid: 186,
@@ -3078,7 +3131,8 @@ export const supportedPools = [{
     symbol: 'KP4R-ETH UNIV2',
     tokenSymbol: 'KP4R',
     icon: '/kebab.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/KP4R/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/KP4R/ETH',
   },
   {
     pid: 187,
@@ -3093,7 +3147,8 @@ export const supportedPools = [{
     symbol: 'IDLE-ETH UNIV2',
     tokenSymbol: 'IDLE',
     icon: '/ice-cube.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/IDLE/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/IDLE/ETH',
   },
   {
     pid: 188,
@@ -3123,7 +3178,8 @@ export const supportedPools = [{
     symbol: 'ZAP-ETH UNIV2',
     tokenSymbol: 'ZAP',
     icon: '/zucchini.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ZAP/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ZAP/ETH',
   },
   {
     pid: 190,
@@ -3168,7 +3224,8 @@ export const supportedPools = [{
     symbol: 'L2-ETH UNIV2',
     tokenSymbol: 'L2',
     icon: '/fortune-cookie.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/L2/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/L2/ETH',
   },
   {
     pid: 193,
@@ -3258,7 +3315,8 @@ export const supportedPools = [{
     symbol: 'DEXT-ETH UNIV2',
     tokenSymbol: 'DEXT',
     icon: '/drumstick.png',
-    refUrl: 'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DEXT/ETH',
+    refUrl:
+      'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DEXT/ETH',
   },
   {
     pid: 199,
@@ -3274,5 +3332,5 @@ export const supportedPools = [{
     tokenSymbol: 'eXRD',
     icon: '/scientist.png',
     refUrl: 'https://www.hoozh.com/friends/26368269?localeLang=en&',
-  }
+  },
 ]

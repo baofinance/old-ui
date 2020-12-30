@@ -38,11 +38,11 @@ const useAllStakedValue = () => {
           pid,
           lpContract,
           tokenContract,
-          tokenDecimals
+          tokenDecimals,
         }: {
           pid: number
           lpContract: Contract
-          tokenContract: Contract,
+          tokenContract: Contract
           tokenDecimals: number
         }) =>
           getTotalLPWethValue(

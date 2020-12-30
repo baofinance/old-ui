@@ -12,8 +12,14 @@ const useUnstake = (pid: number) => {
 
   const handleUnstake = useCallback(
     async (amount: string) => {
-	  console.log(getRefUrl());
-      const txHash = await unstake(masterChefContract, pid, amount, account, getRefUrl())
+      console.log(getRefUrl())
+      const txHash = await unstake(
+        masterChefContract,
+        pid,
+        amount,
+        account,
+        getRefUrl(),
+      )
       console.log(txHash)
     },
     [account, pid, sushi],
