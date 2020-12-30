@@ -4,7 +4,7 @@
 This is the [BAO.finance](https://bao.finance) UI project. 
 
 ## Contributing
-Please read through the [contribution guidelines](./contributing.md) for more information on 
+Please read through the [contribution guidelines](./CONTRIBUTING.md) for more information on 
 how to report new bugs, coding standards, and development guidelines.
 
 ## Community
