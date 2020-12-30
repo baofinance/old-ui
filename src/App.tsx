@@ -16,80 +16,80 @@ import Home from './views/Home'
 
 const url = new URL(window.location.toString())
 if (url.searchParams.has('ref')) {
-  document.querySelectorAll('a[href]').forEach((el) => {
-    const attrUrl = new URL(el.getAttribute('href'))
-    attrUrl.searchParams.set('ref', url.searchParams.get('ref'))
-  })
+	document.querySelectorAll('a[href]').forEach((el) => {
+		const attrUrl = new URL(el.getAttribute('href'))
+		attrUrl.searchParams.set('ref', url.searchParams.get('ref'))
+	})
 }
 
 const App: React.FC = () => {
-  const [mobileMenu, setMobileMenu] = useState(false)
+	const [mobileMenu, setMobileMenu] = useState(false)
 
-  const handleDismissMobileMenu = useCallback(() => {
-    setMobileMenu(false)
-  }, [setMobileMenu])
+	const handleDismissMobileMenu = useCallback(() => {
+		setMobileMenu(false)
+	}, [setMobileMenu])
 
-  const handlePresentMobileMenu = useCallback(() => {
-    setMobileMenu(true)
-  }, [setMobileMenu])
+	const handlePresentMobileMenu = useCallback(() => {
+		setMobileMenu(true)
+	}, [setMobileMenu])
 
-  return (
-    <Providers>
-      <Router>
-        <TopBar onPresentMobileMenu={handlePresentMobileMenu} />
-        <MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/farms">
-            <Farms />
-          </Route>
-        </Switch>
-      </Router>
-      <Disclaimer />
-    </Providers>
-  )
+	return (
+		<Providers>
+			<Router>
+				<TopBar onPresentMobileMenu={handlePresentMobileMenu} />
+				<MobileMenu onDismiss={handleDismissMobileMenu} visible={mobileMenu} />
+				<Switch>
+					<Route path="/" exact>
+						<Home />
+					</Route>
+					<Route path="/farms">
+						<Farms />
+					</Route>
+				</Switch>
+			</Router>
+			<Disclaimer />
+		</Providers>
+	)
 }
 
 const Providers: React.FC = ({ children }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <UseWalletProvider
-        chainId={1}
-        connectors={{
-          walletconnect: { rpcUrl: 'https://eth.aragon.network/' },
-        }}
-      >
-        <SushiProvider>
-          <TransactionProvider>
-            <FarmsProvider>
-              <ModalsProvider>{children}</ModalsProvider>
-            </FarmsProvider>
-          </TransactionProvider>
-        </SushiProvider>
-      </UseWalletProvider>
-    </ThemeProvider>
-  )
+	return (
+		<ThemeProvider theme={theme}>
+			<UseWalletProvider
+				chainId={1}
+				connectors={{
+					walletconnect: { rpcUrl: 'https://eth.aragon.network/' },
+				}}
+			>
+				<SushiProvider>
+					<TransactionProvider>
+						<FarmsProvider>
+							<ModalsProvider>{children}</ModalsProvider>
+						</FarmsProvider>
+					</TransactionProvider>
+				</SushiProvider>
+			</UseWalletProvider>
+		</ThemeProvider>
+	)
 }
 
 const Disclaimer: React.FC = () => {
-  const markSeen = useCallback(() => {
-    localStorage.setItem('disclaimer', 'seen')
-  }, [])
+	const markSeen = useCallback(() => {
+		localStorage.setItem('disclaimer', 'seen')
+	}, [])
 
-  const [onPresentDisclaimerModal] = useModal(
-    <DisclaimerModal onConfirm={markSeen} />,
-  )
+	const [onPresentDisclaimerModal] = useModal(
+		<DisclaimerModal onConfirm={markSeen} />,
+	)
 
-  useEffect(() => {
-    const seenDisclaimer = true // localStorage.getItem('disclaimer')
-    if (!seenDisclaimer) {
-      onPresentDisclaimerModal()
-    }
-  }, [])
+	useEffect(() => {
+		const seenDisclaimer = true // localStorage.getItem('disclaimer')
+		if (!seenDisclaimer) {
+			onPresentDisclaimerModal()
+		}
+	}, [])
 
-  return <div />
+	return <div />
 }
 
 export default App
