@@ -7,20 +7,20 @@ import CardTitle from '../../CardTitle'
 import Spacer from '../../Spacer'
 
 interface WalletCardProps {
-  icon: React.ReactNode
-  onConnect: () => void
-  title: string
+	icon: React.ReactNode
+	onConnect: () => void
+	title: string
 }
 
 const WalletCard: React.FC<WalletCardProps> = ({ icon, onConnect, title }) => (
-  <Card>
-    <CardContent>
-      <CardIcon>{icon}</CardIcon>
-      <CardTitle text={title} />
-      <Spacer />
-      <Button onClick={onConnect} text="Connect" />
-    </CardContent>
-  </Card>
+	<Card>
+		<CardContent>
+			<CardIcon>{icon}</CardIcon>
+			<CardTitle text={title} />
+			<Spacer />
+			<Button onClick={onConnect} text="Connect" />
+		</CardContent>
+	</Card>
 )
 
 export default WalletCard

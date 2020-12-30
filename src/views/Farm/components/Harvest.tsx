@@ -12,87 +12,90 @@ import useReward from '../../../hooks/useReward'
 import useValues from '../../../hooks/useValues'
 import useSubValues from '../../../hooks/useSubValues'
 import { getBalanceNumber } from '../../../utils/formatBalance'
-import { getWethPrice, getBaoPrice, getWethPriceContract, getBaoPriceContract } from '../../../sushi/utils'
-import {BigNumber} from 'bignumber.js'
+import {
+	getWethPrice,
+	getBaoPrice,
+	getWethPriceContract,
+	getBaoPriceContract,
+} from '../../../sushi/utils'
+import { BigNumber } from 'bignumber.js'
 import Spacer from '../../../components/Spacer'
 import useSushi from '../../../hooks/useSushi'
 import bao from '../../../assets/img/bao.png'
 
 interface HarvestProps {
-  pid: number
+	pid: number
 }
 
-
-
 const Harvest: React.FC<HarvestProps> = ({ pid }) => {
-  const earnings = useEarnings(pid)
-  const locks = useLockedEarnings()
-  const [pendingTx, setPendingTx] = useState(false)
-  const { onReward } = useReward(pid)
-  const sushi = useSushi()
-  var userInfo = useValues()
-  var userSubInfo = useSubValues()
-  
-  
+	const earnings = useEarnings(pid)
+	const locks = useLockedEarnings()
+	const [pendingTx, setPendingTx] = useState(false)
+	const { onReward } = useReward(pid)
+	const sushi = useSushi()
+	const userInfo = useValues()
+	const userSubInfo = useSubValues()
 
-  return (
-    <Card>
-      <CardContent>
-        <StyledCardContentInner>
-          <StyledCardHeader>
-            <CardIcon><img src={bao} height={50}/></CardIcon>
-            <Value value={getBalanceNumber(earnings)} />
-            <Label text="BAO Earned" />
-			</StyledCardHeader>
-			<Spacer />
-			<StyledCardHeader>
-			<Value value={getBalanceNumber(locks)} />
-			<Label text="Locked Bao" />
-			<Spacer />
-			</StyledCardHeader>
-			<Label text={userInfo}/>
-			<Spacer />
-			<Label text={userSubInfo} />
-          <StyledCardActions>
-            <Button
-              disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? 'Collecting BAO' : 'Harvest'}
-              onClick={async () => {
-                setPendingTx(true)
-                await onReward()
-                setPendingTx(false)
-              }}
-            />
-          </StyledCardActions>
-        </StyledCardContentInner>
-      </CardContent>
-    </Card>
-  )
+	return (
+		<Card>
+			<CardContent>
+				<StyledCardContentInner>
+					<StyledCardHeader>
+						<CardIcon>
+							<img src={bao} height={50} />
+						</CardIcon>
+						<Value value={getBalanceNumber(earnings)} />
+						<Label text="BAO Earned" />
+					</StyledCardHeader>
+					<Spacer />
+					<StyledCardHeader>
+						<Value value={getBalanceNumber(locks)} />
+						<Label text="Locked Bao" />
+						<Spacer />
+					</StyledCardHeader>
+					<Label text={userInfo} />
+					<Spacer />
+					<Label text={userSubInfo} />
+					<StyledCardActions>
+						<Button
+							disabled={!earnings.toNumber() || pendingTx}
+							text={pendingTx ? 'Collecting BAO' : 'Harvest'}
+							onClick={async () => {
+								setPendingTx(true)
+								await onReward()
+								setPendingTx(false)
+							}}
+						/>
+					</StyledCardActions>
+				</StyledCardContentInner>
+			</CardContent>
+		</Card>
+	)
 }
 
 const StyledCardHeader = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 `
 const StyledCardActions = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: ${(props) => props.theme.spacing[6]}px;
-  width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: ${(props) => props.theme.spacing[6]}px;
+	width: 100%;
 `
 
 const StyledSpacer = styled.div`
-  height: ${(props) => props.theme.spacing[4]}px;
-  width: ${(props) => props.theme.spacing[4]}px;
+	height: ${(props) => props.theme.spacing[4]}px;
+	width: ${(props) => props.theme.spacing[4]}px;
 `
 
 const StyledCardContentInner = styled.div`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: space-between;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
 `
 
 export default Harvest

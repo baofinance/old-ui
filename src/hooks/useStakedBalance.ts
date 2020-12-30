@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import {BigNumber} from 'bignumber.js'
+import { BigNumber } from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
 import { getStaked, getMasterChefContract } from '../sushi/utils'
@@ -14,12 +14,12 @@ const useStakedBalance = (pid: number) => {
   const sushi = useSushi()
   const masterChefContract = getMasterChefContract(sushi)
   const block = useBlock()
-  var userBalance;
+  let userBalance
 
   const fetchBalance = useCallback(async () => {
-	BigNumber.config({ DECIMAL_PLACES: 18 })
+    BigNumber.config({ DECIMAL_PLACES: 18 })
     const balance = await getStaked(masterChefContract, pid, account)
-	userBalance = new BigNumber(balance)
+    userBalance = new BigNumber(balance)
     setBalance(userBalance.decimalPlaces(18))
   }, [account, pid, sushi])
 

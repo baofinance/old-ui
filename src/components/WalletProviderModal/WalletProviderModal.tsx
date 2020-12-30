@@ -15,49 +15,49 @@ import Spacer from '../Spacer'
 import WalletCard from './components/WalletCard'
 
 const WalletProviderModal: React.FC<ModalProps> = ({ onDismiss }) => {
-  const { account, connect } = useWallet()
+	const { account, connect } = useWallet()
 
-  useEffect(() => {
-    if (account) {
-      onDismiss()
-    }
-  }, [account, onDismiss])
+	useEffect(() => {
+		if (account) {
+			onDismiss()
+		}
+	}, [account, onDismiss])
 
-  return (
-    <Modal>
-      <ModalTitle text="Select a wallet provider." />
+	return (
+		<Modal>
+			<ModalTitle text="Select a wallet provider." />
 
-      <ModalContent>
-        <StyledWalletsWrapper>
-          <StyledWalletCard>
-            <WalletCard
-              icon={<img src={metamaskLogo} style={{ height: 32 }} />}
-              onConnect={() => connect('injected')}
-              title="Metamask"
-            />
-          </StyledWalletCard>
-          <Spacer size="sm" />
-        </StyledWalletsWrapper>
-      </ModalContent>
+			<ModalContent>
+				<StyledWalletsWrapper>
+					<StyledWalletCard>
+						<WalletCard
+							icon={<img src={metamaskLogo} style={{ height: 32 }} />}
+							onConnect={() => connect('injected')}
+							title="Metamask"
+						/>
+					</StyledWalletCard>
+					<Spacer size="sm" />
+				</StyledWalletsWrapper>
+			</ModalContent>
 
-      <ModalActions>
-        <Button text="Cancel" variant="secondary" onClick={onDismiss} />
-      </ModalActions>
-    </Modal>
-  )
+			<ModalActions>
+				<Button text="Cancel" variant="secondary" onClick={onDismiss} />
+			</ModalActions>
+		</Modal>
+	)
 }
 
 const StyledWalletsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
-    flex-direction: column;
-    flex-wrap: none;
-  }
+	display: flex;
+	flex-wrap: wrap;
+	@media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
+		flex-direction: column;
+		flex-wrap: none;
+	}
 `
 
 const StyledWalletCard = styled.div`
-  flex-basis: calc(50% - ${(props) => props.theme.spacing[2]}px);
+	flex-basis: calc(50% - ${(props) => props.theme.spacing[2]}px);
 `
 
 export default WalletProviderModal

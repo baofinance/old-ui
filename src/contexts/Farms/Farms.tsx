@@ -11,23 +11,23 @@ import Context from './context'
 import { Farm } from './types'
 
 const Farms: React.FC = ({ children }) => {
-  const [unharvested, setUnharvested] = useState(0)
+	const [unharvested, setUnharvested] = useState(0)
 
-  const sushi = useSushi()
-  const { account } = useWallet()
+	const sushi = useSushi()
+	const { account } = useWallet()
 
-  const farms = getFarms(sushi)
+	const farms = getFarms(sushi)
 
-  return (
-    <Context.Provider
-      value={{
-        farms,
-        unharvested,
-      }}
-    >
-      {children}
-    </Context.Provider>
-  )
+	return (
+		<Context.Provider
+			value={{
+				farms,
+				unharvested,
+			}}
+		>
+			{children}
+		</Context.Provider>
+	)
 }
 
 export default Farms

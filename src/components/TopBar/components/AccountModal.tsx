@@ -16,66 +16,66 @@ import Spacer from '../../Spacer'
 import Value from '../../Value'
 
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
-  const { account, reset } = useWallet()
+	const { account, reset } = useWallet()
 
-  const handleSignOutClick = useCallback(() => {
-    onDismiss!()
-    reset()
-  }, [onDismiss, reset])
+	const handleSignOutClick = useCallback(() => {
+		onDismiss!()
+		reset()
+	}, [onDismiss, reset])
 
-  const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+	const sushi = useSushi()
+	const sushiBalance = useTokenBalance(getSushiAddress(sushi))
 
-  return (
-    <Modal>
-      <ModalTitle text="My Account" />
-      <ModalContent>
-        <Spacer />
+	return (
+		<Modal>
+			<ModalTitle text="My Account" />
+			<ModalContent>
+				<Spacer />
 
-        <div style={{ display: 'flex' }}>
-          <StyledBalanceWrapper>
-            <CardIcon>
-              <span>🍣</span>
-            </CardIcon>
-            <StyledBalance>
-              <Value value={getBalanceNumber(sushiBalance)} />
-              <Label text="SUSHI Balance" />
-            </StyledBalance>
-          </StyledBalanceWrapper>
-        </div>
+				<div style={{ display: 'flex' }}>
+					<StyledBalanceWrapper>
+						<CardIcon>
+							<span>🍣</span>
+						</CardIcon>
+						<StyledBalance>
+							<Value value={getBalanceNumber(sushiBalance)} />
+							<Label text="SUSHI Balance" />
+						</StyledBalance>
+					</StyledBalanceWrapper>
+				</div>
 
-        <Spacer />
-        <Button
-          href={`https://etherscan.io/address/${account}`}
-          text="View on Etherscan"
-          variant="secondary"
-        />
-        <Spacer />
-        <Button
-          onClick={handleSignOutClick}
-          text="Sign out"
-          variant="secondary"
-        />
-      </ModalContent>
-      <ModalActions>
-        <Button onClick={onDismiss} text="Cancel" />
-      </ModalActions>
-    </Modal>
-  )
+				<Spacer />
+				<Button
+					href={`https://etherscan.io/address/${account}`}
+					text="View on Etherscan"
+					variant="secondary"
+				/>
+				<Spacer />
+				<Button
+					onClick={handleSignOutClick}
+					text="Sign out"
+					variant="secondary"
+				/>
+			</ModalContent>
+			<ModalActions>
+				<Button onClick={onDismiss} text="Cancel" />
+			</ModalActions>
+		</Modal>
+	)
 }
 
 const StyledBalance = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 `
 
 const StyledBalanceWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  margin-bottom: ${(props) => props.theme.spacing[4]}px;
+	align-items: center;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	margin-bottom: ${(props) => props.theme.spacing[4]}px;
 `
 
 export default AccountModal
