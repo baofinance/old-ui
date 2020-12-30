@@ -14,7 +14,7 @@ export const Context = createContext<SushiContext>({
 
 declare global {
 	interface Window {
-		sushisauce: any,
+		sushisauce: any
 		sushi: any
 	}
 }
