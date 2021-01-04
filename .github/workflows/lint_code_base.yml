@@ -11,7 +11,7 @@ jobs:
       - name: Run Super-Linter
         uses: github/super-linter@v3
         env:
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           LINTER_RULES_PATH: /
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.js 
           VALIDATE_JAVASCRIPT_ES: true
