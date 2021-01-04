@@ -25,9 +25,12 @@ const Nav: React.FC = () => {
 			>
 				Menu
 			</StyledLink>
-			<StyledAbsoluteLink href="https://snapshot.page/#/baovotes.eth" target="_blank">
+			<StyledAbsoluteLink
+				href="https://snapshot.page/#/baovotes.eth"
+				target="_blank"
+			>
 				Vote
-			</StyledAbsoluteLink>			
+			</StyledAbsoluteLink>
 			<StyledAbsoluteLink href="https://docs.bao.finance" target="_blank">
 				About
 			</StyledAbsoluteLink>
