@@ -25,13 +25,9 @@ const Nav: React.FC = () => {
 			>
 				Menu
 			</StyledLink>
-			<StyledLink
-				exact
-				activeClassName="active"
-				to={{ pathname: '/staking', search: '?ref=' + refer }}
-			>
-				Staking
-			</StyledLink>
+			<StyledAbsoluteLink href="https://snapshot.page/#/baovotes.eth" target="_blank">
+				Vote
+			</StyledAbsoluteLink>			
 			<StyledAbsoluteLink href="https://docs.bao.finance" target="_blank">
 				About
 			</StyledAbsoluteLink>
