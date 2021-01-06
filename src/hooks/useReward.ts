@@ -7,14 +7,14 @@ import { harvest, getMasterChefContract } from '../bao/utils'
 
 const useReward = (pid: number) => {
   const { account } = useWallet()
-  const sushi = useBao()
-  const masterChefContract = getMasterChefContract(sushi)
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
 
   const handleReward = useCallback(async () => {
     const txHash = await harvest(masterChefContract, pid, account)
     console.log(txHash)
     return txHash
-  }, [account, pid, sushi])
+  }, [account, pid, bao])
 
   return { onReward: handleReward }
 }

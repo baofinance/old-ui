@@ -25,10 +25,10 @@ export interface StakedValue {
 const useAllStakedValue = () => {
   const [balances, setBalance] = useState([] as Array<StakedValue>)
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useBao()
-  const farms = getFarms(sushi)
-  const masterChefContract = getMasterChefContract(sushi)
-  const wethContract = getWethContract(sushi)
+  const bao = useBao()
+  const farms = getFarms(bao)
+  const masterChefContract = getMasterChefContract(bao)
+  const wethContract = getWethContract(bao)
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
@@ -57,13 +57,13 @@ const useAllStakedValue = () => {
     )
 
     setBalance(balances)
-  }, [account, masterChefContract, sushi])
+  }, [account, masterChefContract, bao])
 
   useEffect(() => {
-    if (account && masterChefContract && sushi) {
+    if (account && masterChefContract && bao) {
       fetchAllStakedValue()
     }
-  }, [account, block, masterChefContract, setBalance, sushi])
+  }, [account, block, masterChefContract, setBalance, bao])
 
   return balances
 }

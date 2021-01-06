@@ -39,14 +39,14 @@ const Farm: React.FC = () => {
 		window.scrollTo(0, 0)
 	}, [])
 
-	const sushi = useBao()
+	const bao = useBao()
 	const { ethereum } = useWallet()
 
 	const lpContract = useMemo(() => {
 		return getContract(ethereum as provider, lpTokenAddress)
 	}, [ethereum, lpTokenAddress])
 
-	const { onRedeem } = useRedeem(getMasterChefContract(sushi))
+	const { onRedeem } = useRedeem(getMasterChefContract(bao))
 
 	const lpTokenName = useMemo(() => {
 		return lpToken.toUpperCase()

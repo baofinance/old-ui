@@ -23,8 +23,8 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 		reset()
 	}, [onDismiss, reset])
 
-	const sushi = useBao()
-	const sushiBalance = useTokenBalance(getBaoAddress(sushi))
+	const bao = useBao()
+	const baoBalance = useTokenBalance(getBaoAddress(bao))
 
 	return (
 		<Modal>
@@ -38,7 +38,7 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 							<span>🥟</span>
 						</CardIcon>
 						<StyledBalance>
-							<Value value={getBalanceNumber(sushiBalance)} />
+							<Value value={getBalanceNumber(baoBalance)} />
 							<Label text="BAO Balance" />
 						</StyledBalance>
 					</StyledBalanceWrapper>

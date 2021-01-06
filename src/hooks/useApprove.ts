@@ -9,8 +9,8 @@ import { approve, getMasterChefContract } from '../bao/utils'
 
 const useApprove = (lpContract: Contract) => {
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useBao()
-  const masterChefContract = getMasterChefContract(sushi)
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
 
   const handleApprove = useCallback(async () => {
     try {

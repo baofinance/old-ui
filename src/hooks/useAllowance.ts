@@ -12,8 +12,8 @@ import { getMasterChefContract } from '../bao/utils'
 const useAllowance = (lpContract: Contract) => {
   const [allowance, setAllowance] = useState(new BigNumber(0))
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useBao()
-  const masterChefContract = getMasterChefContract(sushi)
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
 
   const fetchAllowance = useCallback(async () => {
     const allowance = await getAllowance(

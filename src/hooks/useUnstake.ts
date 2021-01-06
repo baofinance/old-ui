@@ -7,8 +7,8 @@ import { unstake, getMasterChefContract, getRefUrl } from '../bao/utils'
 
 const useUnstake = (pid: number) => {
   const { account } = useWallet()
-  const sushi = useBao()
-  const masterChefContract = getMasterChefContract(sushi)
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
 
   const handleUnstake = useCallback(
     async (amount: string) => {
@@ -22,7 +22,7 @@ const useUnstake = (pid: number) => {
       )
       console.log(txHash)
     },
-    [account, pid, sushi],
+    [account, pid, bao],
   )
 
   return { onUnstake: handleUnstake }

@@ -14,20 +14,20 @@ const useLockedEarnings = () => {
     account,
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useBao()
-  const sushiContract = getBaoContract(sushi)
+  const bao = useBao()
+  const baoContract = getBaoContract(bao)
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
-    const balance = await getLockedEarned(sushiContract, account)
+    const balance = await getLockedEarned(baoContract, account)
     setBalance(new BigNumber(balance))
-  }, [account, sushiContract, sushi])
+  }, [account, baoContract, bao])
 
   useEffect(() => {
-    if (account && sushiContract && sushi) {
+    if (account && baoContract && bao) {
       fetchBalance()
     }
-  }, [account, block, sushiContract, setBalance, sushi])
+  }, [account, block, baoContract, setBalance, bao])
 
   return balance
 }

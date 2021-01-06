@@ -7,12 +7,12 @@ import { stake, getMasterChefContract, getRefUrl } from '../bao/utils'
 
 const useStake = (pid: number) => {
   const { account } = useWallet()
-  const sushi = useBao()
+  const bao = useBao()
 
   const handleStake = useCallback(
     async (amount: string) => {
       const txHash = await stake(
-        getMasterChefContract(sushi),
+        getMasterChefContract(bao),
         pid,
         amount,
         account,
@@ -20,7 +20,7 @@ const useStake = (pid: number) => {
       )
       console.log(txHash)
     },
-    [account, pid, sushi],
+    [account, pid, bao],
   )
 
   return { onStake: handleStake }
