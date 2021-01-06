@@ -26,7 +26,7 @@ export const getBaoPriceAddress = (sushi) => {
 	return sushi && sushi.baoPriceAddress
 }
 
-export const getSushiAddress = (sushi) => {
+export const getBaoAddress = (sushi) => {
 	return sushi && sushi.sushiAddress
 }
 export const getWethContract = (sushi) => {
@@ -44,7 +44,7 @@ export const getBaoPriceContract = (sushi) => {
 export const getMasterChefContract = (sushi) => {
 	return sushi && sushi.contracts && sushi.contracts.masterChef
 }
-export const getSushiContract = (sushi) => {
+export const getBaoContract = (sushi) => {
 	return sushi && sushi.contracts && sushi.contracts.sushi
 }
 
@@ -209,7 +209,7 @@ export const getBaoPrice = async (sushi) => {
 	return new BigNumber(amount)
 }
 
-export const getSushiSupply = async (sushi) => {
+export const getBaoSupply = async (sushi) => {
 	return new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
 }
 

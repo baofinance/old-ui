@@ -11,12 +11,12 @@ import {
   getBaoPriceContract,
 } from '../bao/utils'
 import useLockedEarnings from './useLockedEarnings'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useSubValues = () => {
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
+  const sushi = useBao()
   //const wethPriceContract = getWethPriceContract(sushi)
   //const baoPriceContract = getBaoPriceContract(sushi)
   const locks = useLockedEarnings()

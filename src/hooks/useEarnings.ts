@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
 import { getEarned, getMasterChefContract } from '../bao/utils'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useEarnings = (pid: number) => {
@@ -14,7 +14,7 @@ const useEarnings = (pid: number) => {
     account,
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
+  const sushi = useBao()
   const masterChefContract = getMasterChefContract(sushi)
   const block = useBlock()
 

@@ -8,15 +8,15 @@ import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
 import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
-import SushiIcon from '../../../components/SushiIcon'
+import BaoIcon from '../../../components/BaoIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
+import useBao from '../../../hooks/useBao'
 import {
-	getSushiAddress,
-	getSushiSupply,
+	getBaoAddress,
+	getBaoSupply,
 	getReferrals,
 	getMasterChefContract,
 } from '../../../bao/utils'
@@ -78,14 +78,14 @@ const Balances: React.FC = () => {
 	const [totalSupply, setTotalSupply] = useState<BigNumber>()
 	const [totalReferrals, setTotalReferrals] = useState<string>()
 	const [refLink, setRefLink] = useState<string>()
-	const sushi = useSushi()
-	const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+	const sushi = useBao()
+	const sushiBalance = useTokenBalance(getBaoAddress(sushi))
 	const masterChefContract = getMasterChefContract(sushi)
 	const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
 	useEffect(() => {
 		async function fetchTotalSupply() {
-			const supply = await getSushiSupply(sushi)
+			const supply = await getBaoSupply(sushi)
 			setTotalSupply(supply)
 		}
 		if (sushi) {
@@ -120,7 +120,7 @@ const Balances: React.FC = () => {
 					<CardContent>
 						<StyledBalances>
 							<StyledBalance>
-								<SushiIcon />
+								<BaoIcon />
 								<Spacer />
 								<div style={{ flex: 1 }}>
 									<Label text="Your BAO Balance" />

@@ -2,8 +2,8 @@ import React, { useCallback } from 'react'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress } from '../../../bao/utils'
+import useBao from '../../../hooks/useBao'
+import { getBaoAddress } from '../../../bao/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 import Button from '../../Button'
 import CardIcon from '../../CardIcon'
@@ -23,8 +23,8 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 		reset()
 	}, [onDismiss, reset])
 
-	const sushi = useSushi()
-	const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+	const sushi = useBao()
+	const sushiBalance = useTokenBalance(getBaoAddress(sushi))
 
 	return (
 		<Modal>

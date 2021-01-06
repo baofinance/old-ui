@@ -4,14 +4,14 @@ import { BigNumber } from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
 import { getStaked, getMasterChefContract } from '../bao/utils'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 import { ethers } from 'ethers'
 
 const useStakedBalance = (pid: number) => {
   const [balance, setBalance] = useState(new BigNumber(0))
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
+  const sushi = useBao()
   const masterChefContract = getMasterChefContract(sushi)
   const block = useBlock()
   let userBalance

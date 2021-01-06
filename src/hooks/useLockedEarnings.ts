@@ -4,8 +4,8 @@ import { provider } from 'web3-core'
 import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getLockedEarned, getSushiContract } from '../bao/utils'
-import useSushi from './useSushi'
+import { getLockedEarned, getBaoContract } from '../bao/utils'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useLockedEarnings = () => {
@@ -14,8 +14,8 @@ const useLockedEarnings = () => {
     account,
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
-  const sushiContract = getSushiContract(sushi)
+  const sushi = useBao()
+  const sushiContract = getBaoContract(sushi)
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {

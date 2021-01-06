@@ -1,13 +1,13 @@
 import { useCallback } from 'react'
 
-import useSushi from './useSushi'
+import useBao from './useBao'
 import { useWallet } from 'use-wallet'
 
 import { harvest, getMasterChefContract } from '../bao/utils'
 
 const useReward = (pid: number) => {
   const { account } = useWallet()
-  const sushi = useSushi()
+  const sushi = useBao()
   const masterChefContract = getMasterChefContract(sushi)
 
   const handleReward = useCallback(async () => {

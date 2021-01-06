@@ -5,7 +5,7 @@ import { Account } from './lib/accounts.js'
 import { EVM } from './lib/evm.js'
 import { contractAddresses } from './lib/constants'
 
-export class Sushi {
+export class Bao {
 	constructor(provider, networkId, testing, options) {
 		var realProvider
 

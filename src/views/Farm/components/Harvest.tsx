@@ -20,7 +20,7 @@ import {
 } from '../../../bao/utils'
 import { BigNumber } from 'bignumber.js'
 import Spacer from '../../../components/Spacer'
-import useSushi from '../../../hooks/useSushi'
+import useBao from '../../../hooks/useBao'
 import bao from '../../../assets/img/bao.png'
 
 interface HarvestProps {
@@ -32,7 +32,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
 	const locks = useLockedEarnings()
 	const [pendingTx, setPendingTx] = useState(false)
 	const { onReward } = useReward(pid)
-	const sushi = useSushi()
+	const sushi = useBao()
 	const userInfo = useValues()
 	const userSubInfo = useSubValues()
 

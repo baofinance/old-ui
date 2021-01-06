@@ -11,7 +11,7 @@ import {
   getFarms,
   getTotalLPWethValue,
 } from '../bao/utils'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 export interface StakedValue {
@@ -25,7 +25,7 @@ export interface StakedValue {
 const useAllStakedValue = () => {
   const [balances, setBalance] = useState([] as Array<StakedValue>)
   const { account }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
+  const sushi = useBao()
   const farms = getFarms(sushi)
   const masterChefContract = getMasterChefContract(sushi)
   const wethContract = getWethContract(sushi)

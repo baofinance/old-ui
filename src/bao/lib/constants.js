@@ -2880,7 +2880,7 @@ export const supportedPools = [
 			1: '0x6b3595068778dd592e39a122f4f5a5cf09c90fe2',
 		},
 		tokenDecimals: 18,
-		name: 'Simply Sushi',
+		name: 'Simply Bao',
 		symbol: 'SUSHI-ETH UNIV2',
 		tokenSymbol: 'SUSHI',
 		icon: '/simplysushi.png',

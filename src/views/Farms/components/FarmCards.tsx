@@ -15,7 +15,7 @@ import useAllStakedValue, {
 	StakedValue,
 } from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
-import useSushi from '../../../hooks/useSushi'
+import useBao from '../../../hooks/useBao'
 import { getEarned, getMasterChefContract } from '../../../bao/utils'
 import { bnToDec } from '../../../utils'
 import eggtart from '../../assets/img/icons/egg-tart.png'
@@ -95,7 +95,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
 	const { account } = useWallet()
 	const { lpTokenAddress } = farm
-	const sushi = useSushi()
+	const sushi = useBao()
 
 	const renderer = (countdownProps: CountdownRenderProps) => {
 		const { hours, minutes, seconds } = countdownProps

@@ -8,7 +8,7 @@ import {
 } from './constants.js'
 
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
-import SushiAbi from './abi/sushi.json'
+import BaoAbi from './abi/sushi.json'
 import MasterChefAbi from './abi/masterchef.json'
 import ERC20Abi from './abi/erc20.json'
 import WETHAbi from './abi/weth.json'
@@ -25,7 +25,7 @@ export class Contracts {
 		this.defaultGas = options.defaultGas
 		this.defaultGasPrice = options.defaultGasPrice
 
-		this.sushi = new this.web3.eth.Contract(SushiAbi)
+		this.sushi = new this.web3.eth.Contract(BaoAbi)
 		this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
 		this.weth = new this.web3.eth.Contract(WETHAbi)
 		this.wethPrice = new this.web3.eth.Contract(ChainOracle)
