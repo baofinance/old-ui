@@ -19,7 +19,7 @@ import {
 	getSushiSupply,
 	getReferrals,
 	getMasterChefContract,
-} from '../../../sushi/utils'
+} from '../../../bao/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {

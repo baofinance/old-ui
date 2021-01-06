@@ -16,7 +16,7 @@ import useAllStakedValue, {
 } from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useSushi from '../../../hooks/useSushi'
-import { getEarned, getMasterChefContract } from '../../../sushi/utils'
+import { getEarned, getMasterChefContract } from '../../../bao/utils'
 import { bnToDec } from '../../../utils'
 import eggtart from '../../assets/img/icons/egg-tart.png'
 

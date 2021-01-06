@@ -4,7 +4,7 @@ import { provider } from 'web3-core'
 import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getEarned, getMasterChefContract, getFarms } from '../sushi/utils'
+import { getEarned, getMasterChefContract, getFarms } from '../bao/utils'
 import useSushi from './useSushi'
 import useBlock from './useBlock'
 

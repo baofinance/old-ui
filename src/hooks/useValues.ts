@@ -9,7 +9,7 @@ import {
   getBaoPrice,
   getWethPriceContract,
   getBaoPriceContract,
-} from '../sushi/utils'
+} from '../bao/utils'
 import useLockedEarnings from './useLockedEarnings'
 import useSushi from './useSushi'
 import useBlock from './useBlock'

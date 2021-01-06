@@ -17,7 +17,7 @@ import {
 	getBaoPrice,
 	getWethPriceContract,
 	getBaoPriceContract,
-} from '../../../sushi/utils'
+} from '../../../bao/utils'
 import { BigNumber } from 'bignumber.js'
 import Spacer from '../../../components/Spacer'
 import useSushi from '../../../hooks/useSushi'
