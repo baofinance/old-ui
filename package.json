@@ -33,7 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "yarn build && cp ./build/index.html ./build/200.html && surge ./build sushiswap.org",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --quiet",
+    "lint": "eslint .",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "eslintConfig": {
