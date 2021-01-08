@@ -42,7 +42,7 @@ Before your PR can be reviewed by a human, you have to pass the code standards. 
 
 To autofix your code to match our standards you can run
 ```
-npm run lint-fix
+yarn lint-fix
 ```
 
 This should be able to fix MOST errors, and will also be able to tell you what errors/warnings it was unable to fix. 
@@ -50,7 +50,7 @@ This should be able to fix MOST errors, and will also be able to tell you what e
 You can run just the linting process by running
 
 ```
-npm run lint
+yarn lint
 ```
 
 This will automatically be run as part of the CI pipeline when you open a PR. The PR can not be merged until all these have been sorted out.
