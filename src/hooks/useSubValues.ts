@@ -47,7 +47,7 @@ const useSubValues = () => {
           const usrSubText =
             'When this unlocks it will earn you $' +
             dailyPrice +
-            ' per day for 3 years. The equivelent of $' +
+            ' per day for 3 years. The equivalent of $' +
             annualPrice +
             ' per year!'
           setUsrSubText(usrSubText)
