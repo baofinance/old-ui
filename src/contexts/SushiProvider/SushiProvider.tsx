@@ -32,7 +32,7 @@ const SushiProvider: React.FC = ({ children }) => {
 			const sushiLib = new Sushi(ethereum, chainId, false, {
 				defaultAccount: ethereum.selectedAddress,
 				defaultConfirmations: 1,
-				autoGasMultiplier: 1.15,
+				autoGasMultiplier: 1.05,
 				testing: false,
 				defaultGas: '300000',
 				defaultGasPrice: '20000000000',
