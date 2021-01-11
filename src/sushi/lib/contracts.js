@@ -19,7 +19,7 @@ export class Contracts {
 	constructor(provider, networkId, web3, options) {
 		this.web3 = web3
 		this.defaultConfirmations = options.defaultConfirmations
-		this.autoGasMultiplier = options.autoGasMultiplier || 1.10
+		this.autoGasMultiplier = options.autoGasMultiplier || 1.1
 		this.confirmationType =
 			options.confirmationType || Types.ConfirmationType.Confirmed
 		this.defaultGas = options.defaultGas
