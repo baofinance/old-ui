@@ -32,7 +32,7 @@ const BaoProvider: React.FC = ({ children }) => {
 			const baoLib = new Bao(ethereum, chainId, false, {
 				defaultAccount: ethereum.selectedAddress,
 				defaultConfirmations: 1,
-				autoGasMultiplier: 1.15,
+				autoGasMultiplier: 1.05,
 				testing: false,
 				defaultGas: '300000',
 				defaultGasPrice: '20000000000',
