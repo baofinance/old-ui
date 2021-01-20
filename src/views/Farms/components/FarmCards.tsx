@@ -37,7 +37,7 @@ const FarmCards: React.FC = () => {
 			: new BigNumber(0)
 
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
-	const BAO_BER_BLOCK = new BigNumber(1024000)
+	const BAO_BER_BLOCK = new BigNumber(512000)
 
 	const rows = farms.reduce<FarmWithStakedValue[][]>(
 		(farmRows, farm, i) => {
