@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import chef from '../../assets/img/chef.png'
+import baoBanner from '../../assets/img/bao-banner.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Page from '../../components/Page'
@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 	return (
 		<Page>
 			<PageHeader
-				icon={chef.toString()}
+				icon={baoBanner}
 				title="BaoChef is Ready"
 				subtitle="Stake Uniswap LP tokens and earn BAO!"
 			/>

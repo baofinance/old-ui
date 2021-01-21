@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
 import { useWallet } from 'use-wallet'
 
-import chef from '../../assets/img/chef.png'
+import baoBanner from '../../assets/img/bao-banner.png'
 
 import Button from '../../components/Button'
 import Page from '../../components/Page'
@@ -26,7 +26,7 @@ const Farms: React.FC = () => {
 					<>
 						<Route exact path={path}>
 							<PageHeader
-								icon={chef}
+								icon={baoBanner}
 								subtitle="Earn BAO tokens by staking Uniswap V2 LP Tokens. And soon generate synthetic assets!"
 								title="Select Your Fav Dim Sum Entrees!"
 							/>
