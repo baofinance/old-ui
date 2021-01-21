@@ -1,5 +1,5 @@
 import React from 'react'
-import bao from '../../assets/img/bao.png'
+import baoBanner from '../../assets/img/bao-banner.png'
 
 interface SushiIconProps {
 	size?: number
@@ -16,7 +16,7 @@ const SushiIcon: React.FC<SushiIconProps> = ({ size = 36, v1, v2, v3 }) => (
 			filter: v1 ? 'saturate(0.5)' : undefined,
 		}}
 	>
-		<img src={bao} width={50} height={50} />
+		<img src={baoBanner} width={50} height={50} />
 	</span>
 )
 
