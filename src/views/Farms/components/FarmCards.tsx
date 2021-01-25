@@ -18,7 +18,6 @@ import useFarms from '../../../hooks/useFarms'
 import useBao from '../../../hooks/useBao'
 import { getEarned, getMasterChefContract } from '../../../bao/utils'
 import { bnToDec } from '../../../utils'
-import eggtart from '../../assets/img/icons/egg-tart.png'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './tab-styles.css';
