@@ -21,6 +21,7 @@ import { bnToDec } from '../../../utils'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import './tab-styles.css';
+import { PoolType } from '../../../contexts/Farms/types'
 
 
 interface FarmWithStakedValue extends Farm, StakedValue {
@@ -44,14 +45,18 @@ const FarmCards: React.FC = () => {
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
 	const BAO_BER_BLOCK = new BigNumber(512000)
 
-	const activePools: FarmWithStakedValue[] = [];
-	const archivedPools: FarmWithStakedValue[] = [];
+	const pools: {[key: string]: FarmWithStakedValue[]} = {
+		[PoolType.UNI]: [],
+		[PoolType.SUSHI]: [],
+		[PoolType.ARCHIVED]: []
+	};
 
 	farms.forEach(
 		(farm, i) => {
 			const farmWithStakedValue = {
 				...farm,
 				...stakedValue[i],
+				poolType: farm.poolType || PoolType.UNI,
 				apy: stakedValue[i]
 					? baoPrice
 							.times(BAO_BER_BLOCK)
@@ -61,26 +66,22 @@ const FarmCards: React.FC = () => {
 					: null,
 			};
 
-			if(farm.archived) {
-				archivedPools.push(farmWithStakedValue);
-			}
-			else {
-				activePools.push(farmWithStakedValue);
-			}
+			pools[farmWithStakedValue.poolType].push(farmWithStakedValue);
 		}
 	);
 
 	return (
 		<Tabs>
 			<TabList>
-				<Tab>Active Pools</Tab>
+				<Tab>Uni Pools</Tab>
+				<Tab>Sushi Pools</Tab>
 				<Tab>Archived Pools</Tab>
 			</TabList>
 
 			<TabPanel>
 				<StyledCards>
-					{activePools.length ? (
-						activePools.map((farm, i) => (
+					{pools[PoolType.UNI].length ? (
+						pools[PoolType.UNI].map((farm, i) => (
 							<React.Fragment key={i}>
 								<FarmCard farm={farm} />
 								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
@@ -95,8 +96,24 @@ const FarmCards: React.FC = () => {
 			</TabPanel>
 			<TabPanel>
 				<StyledCards>
-					{archivedPools.length ? (
-						archivedPools.map((farm, i) => (
+					{pools[PoolType.SUSHI].length ? (
+						pools[PoolType.SUSHI].map((farm, i) => (
+							<React.Fragment key={i}>
+								<FarmCard farm={farm} />
+								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
+							</React.Fragment>
+						))
+					) : (
+							<StyledLoadingWrapper>
+								<Loader text="Cooking the rice ..." />
+							</StyledLoadingWrapper>
+						)}
+				</StyledCards>
+			</TabPanel>
+			<TabPanel>
+				<StyledCards>
+					{pools[PoolType.ARCHIVED].length ? (
+						pools[PoolType.ARCHIVED].map((farm, i) => (
 							<React.Fragment key={i}>
 								<FarmCard farm={farm} />
 								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}

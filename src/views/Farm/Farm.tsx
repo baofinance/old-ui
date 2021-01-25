@@ -11,6 +11,7 @@ import useBao from '../../hooks/useBao'
 import { getMasterChefContract } from '../../bao/utils'
 import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
+import {PoolType} from '../../contexts/Farms/types';
 import Stake from './components/Stake'
 
 const Farm: React.FC = () => {
@@ -24,7 +25,7 @@ const Farm: React.FC = () => {
 		name,
 		icon,
 		refUrl,
-		archived
+		poolType
 	} = useFarm(farmId) || {
 		pid: 0,
 		lpToken: '',
@@ -34,7 +35,7 @@ const Farm: React.FC = () => {
 		name: '',
 		icon: '',
 		refUrl: '',
-		archived: false,
+		poolType: PoolType.UNI,
 	}
 
 	useEffect(() => {
@@ -76,7 +77,7 @@ const Farm: React.FC = () => {
 							lpContract={lpContract}
 							pid={pid}
 							tokenName={lpToken.toUpperCase()}
-							archived={archived}
+							poolType={poolType}
 						/>
 					</StyledCardWrapper>
 				</StyledCardsWrapper>

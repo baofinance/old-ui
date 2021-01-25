@@ -10,6 +10,7 @@ import IconButton from '../../../components/IconButton'
 import { AddIcon } from '../../../components/icons'
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
+import { PoolType } from '../../../contexts/Farms/types'
 import useAllowance from '../../../hooks/useAllowance'
 import useApprove from '../../../hooks/useApprove'
 import useModal from '../../../hooks/useModal'
@@ -25,10 +26,10 @@ interface StakeProps {
 	lpContract: Contract
 	pid: number
 	tokenName: string,
-	archived: boolean
+	poolType: PoolType
 }
 
-const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, archived }) => {
+const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, poolType }) => {
 	const [requestedApproval, setRequestedApproval] = useState(false)
 
 	const allowance = useAllowance(lpContract)
@@ -93,11 +94,11 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, archived }) =
 									onClick={onPresentWithdraw}
 								/>
 								<StyledActionSpacer />
-								{!archived ?? (
+								{poolType !== PoolType.ARCHIVED ? (
 								<IconButton onClick={onPresentDeposit}>
 									<AddIcon />
 								</IconButton>
-								)}
+								) : ''}
 							</>
 						)}
 					</StyledCardActions>
