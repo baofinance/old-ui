@@ -13,6 +13,7 @@ export interface Farm {
   id: string
   tokenSymbol: string
   refUrl: string
+  archived?: boolean
 }
 
 export interface FarmsContext {

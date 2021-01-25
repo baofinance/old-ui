@@ -41,7 +41,10 @@ const FarmCards: React.FC = () => {
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
 	const BAO_BER_BLOCK = new BigNumber(512000)
 
-	const rows: FarmWithStakedValue[] = farms.map(
+	const activePools: FarmWithStakedValue[] = [];
+	const archivedPools: FarmWithStakedValue[] = [];
+
+	farms.forEach(
 		(farm, i) => {
 			const farmWithStakedValue = {
 				...farm,
@@ -55,14 +58,19 @@ const FarmCards: React.FC = () => {
 					: null,
 			};
 
-			return farmWithStakedValue;
+			if(farm.archived) {
+				archivedPools.push(farmWithStakedValue);
+			}
+			else {
+				activePools.push(farmWithStakedValue);
+			}
 		}
 	);
 
 	return (
 		<StyledCards>
-			{rows.length ? (
-				rows.map((farm, i) => (
+			{activePools.length ? (
+				activePools.map((farm, i) => (
 					<React.Fragment key={i}>
 						<FarmCard farm={farm} />
 						{((i+1) % (cardsPerRow) !== 0) && <StyledSpacer />}
