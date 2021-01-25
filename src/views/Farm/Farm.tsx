@@ -24,6 +24,7 @@ const Farm: React.FC = () => {
 		name,
 		icon,
 		refUrl,
+		archived
 	} = useFarm(farmId) || {
 		pid: 0,
 		lpToken: '',
@@ -33,6 +34,7 @@ const Farm: React.FC = () => {
 		name: '',
 		icon: '',
 		refUrl: '',
+		archived: false,
 	}
 
 	useEffect(() => {
@@ -74,6 +76,7 @@ const Farm: React.FC = () => {
 							lpContract={lpContract}
 							pid={pid}
 							tokenName={lpToken.toUpperCase()}
+							archived={archived}
 						/>
 					</StyledCardWrapper>
 				</StyledCardsWrapper>
