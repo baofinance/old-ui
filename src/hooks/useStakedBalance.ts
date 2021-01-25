@@ -3,16 +3,16 @@ import { useCallback, useEffect, useState } from 'react'
 import { BigNumber } from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getStaked, getMasterChefContract } from '../sushi/utils'
-import useSushi from './useSushi'
+import { getStaked, getMasterChefContract } from '../bao/utils'
+import useBao from './useBao'
 import useBlock from './useBlock'
 import { ethers } from 'ethers'
 
 const useStakedBalance = (pid: number) => {
   const [balance, setBalance] = useState(new BigNumber(0))
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
-  const masterChefContract = getMasterChefContract(sushi)
+  const bao = useBao()
+  const masterChefContract = getMasterChefContract(bao)
   const block = useBlock()
   let userBalance
 
@@ -21,13 +21,13 @@ const useStakedBalance = (pid: number) => {
     const balance = await getStaked(masterChefContract, pid, account)
     userBalance = new BigNumber(balance)
     setBalance(userBalance.decimalPlaces(18))
-  }, [account, pid, sushi])
+  }, [account, pid, bao])
 
   useEffect(() => {
-    if (account && sushi) {
+    if (account && bao) {
       fetchBalance()
     }
-  }, [account, pid, setBalance, block, sushi])
+  }, [account, pid, setBalance, block, bao])
 
   return balance.decimalPlaces(18)
 }

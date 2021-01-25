@@ -14,43 +14,43 @@ const GAS_LIMIT = {
 	},
 }
 
-export const getMasterChefAddress = (sushi) => {
-	return sushi && sushi.masterChefAddress
+export const getMasterChefAddress = (bao) => {
+	return bao && bao.masterChefAddress
 }
 
-export const getWethPriceAddress = (sushi) => {
-	return sushi && sushi.wethPriceAddress
+export const getWethPriceAddress = (bao) => {
+	return bao && bao.wethPriceAddress
 }
 
-export const getBaoPriceAddress = (sushi) => {
-	return sushi && sushi.baoPriceAddress
+export const getBaoPriceAddress = (bao) => {
+	return bao && bao.baoPriceAddress
 }
 
-export const getSushiAddress = (sushi) => {
-	return sushi && sushi.sushiAddress
+export const getBaoAddress = (bao) => {
+	return bao && bao.baoAddress
 }
-export const getWethContract = (sushi) => {
-	return sushi && sushi.contracts && sushi.contracts.weth
-}
-
-export const getWethPriceContract = (sushi) => {
-	return sushi && sushi.contracts && sushi.contracts.wethPrice
+export const getWethContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.weth
 }
 
-export const getBaoPriceContract = (sushi) => {
-	return sushi && sushi.contracts && sushi.contracts.baoPrice
+export const getWethPriceContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.wethPrice
 }
 
-export const getMasterChefContract = (sushi) => {
-	return sushi && sushi.contracts && sushi.contracts.masterChef
-}
-export const getSushiContract = (sushi) => {
-	return sushi && sushi.contracts && sushi.contracts.sushi
+export const getBaoPriceContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.baoPrice
 }
 
-export const getFarms = (sushi) => {
-	return sushi
-		? sushi.contracts.pools.map(
+export const getMasterChefContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.masterChef
+}
+export const getBaoContract = (bao) => {
+	return bao && bao.contracts && bao.contracts.bao
+}
+
+export const getFarms = (bao) => {
+	return bao
+		? bao.contracts.pools.map(
 				({
 					pid,
 					name,
@@ -75,7 +75,7 @@ export const getFarms = (sushi) => {
 					tokenSymbol,
 					tokenContract,
 					earnToken: 'BAO',
-					earnTokenAddress: sushi.contracts.sushi.options.address,
+					earnTokenAddress: bao.contracts.bao.options.address,
 					icon,
 					refUrl,
 				}),
@@ -96,8 +96,8 @@ export const getEarned = async (masterChefContract, pid, account) => {
 	return masterChefContract.methods.pendingReward(pid, account).call()
 }
 
-export const getLockedEarned = async (sushiContract, account) => {
-	return sushiContract.methods.lockOf(account).call()
+export const getLockedEarned = async (baoContract, account) => {
+	return baoContract.methods.lockOf(account).call()
 }
 
 export const getTotalLPWethValue = async (
@@ -195,22 +195,22 @@ export const getStaked = async (masterChefContract, pid, account) => {
 	}
 }
 
-export const getWethPrice = async (sushi) => {
-	console.log(sushi)
-	const amount = await sushi.contracts.wethPrice.methods.latestAnswer().call()
+export const getWethPrice = async (bao) => {
+	console.log(bao)
+	const amount = await bao.contracts.wethPrice.methods.latestAnswer().call()
 	return new BigNumber(amount)
 }
 
-export const getBaoPrice = async (sushi) => {
+export const getBaoPrice = async (bao) => {
 	const addr = '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2'
-	const amount = await sushi.contracts.baoPrice.methods
+	const amount = await bao.contracts.baoPrice.methods
 		.consult(addr.toString(), 1)
 		.call()
 	return new BigNumber(amount)
 }
 
-export const getSushiSupply = async (sushi) => {
-	return new BigNumber(await sushi.contracts.sushi.methods.totalSupply().call())
+export const getBaoSupply = async (bao) => {
+	return new BigNumber(await bao.contracts.bao.methods.totalSupply().call())
 }
 
 export const getReferrals = async (masterChefContract, account) => {

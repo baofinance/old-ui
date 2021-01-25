@@ -235,7 +235,7 @@ export const addressMap = {
 }
 
 export const contractAddresses = {
-	sushi: {
+	bao: {
 		1: '0x374cb8c27130e2c9e04f44303f3c8351b9de61c1',
 		4: '0xE5AFBb49BeB7552a1167df6aAED70d88279787e8',
 	},

@@ -4,8 +4,8 @@ import { provider } from 'web3-core'
 import BigNumber from 'bignumber.js'
 import { useWallet } from 'use-wallet'
 
-import { getLockedEarned, getSushiContract } from '../sushi/utils'
-import useSushi from './useSushi'
+import { getLockedEarned, getBaoContract } from '../bao/utils'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useLockedEarnings = () => {
@@ -14,20 +14,20 @@ const useLockedEarnings = () => {
     account,
     ethereum,
   }: { account: string; ethereum: provider } = useWallet()
-  const sushi = useSushi()
-  const sushiContract = getSushiContract(sushi)
+  const bao = useBao()
+  const baoContract = getBaoContract(bao)
   const block = useBlock()
 
   const fetchBalance = useCallback(async () => {
-    const balance = await getLockedEarned(sushiContract, account)
+    const balance = await getLockedEarned(baoContract, account)
     setBalance(new BigNumber(balance))
-  }, [account, sushiContract, sushi])
+  }, [account, baoContract, bao])
 
   useEffect(() => {
-    if (account && sushiContract && sushi) {
+    if (account && baoContract && bao) {
       fetchBalance()
     }
-  }, [account, block, sushiContract, setBalance, sushi])
+  }, [account, block, baoContract, setBalance, bao])
 
   return balance
 }

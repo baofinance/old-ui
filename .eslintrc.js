@@ -37,7 +37,7 @@ module.exports = {
   },
   globals: {
     'importScripts': 'readonly',
-    'window.sushi': 'writable',
+    'window.bao': 'writable',
     'process': 'readonly'
   },
   rules: {
