@@ -19,6 +19,10 @@ import useBao from '../../../hooks/useBao'
 import { getEarned, getMasterChefContract } from '../../../bao/utils'
 import { bnToDec } from '../../../utils'
 import eggtart from '../../assets/img/icons/egg-tart.png'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import './tab-styles.css';
+
 
 interface FarmWithStakedValue extends Farm, StakedValue {
 	apy: BigNumber
@@ -68,21 +72,46 @@ const FarmCards: React.FC = () => {
 	);
 
 	return (
-		<StyledCards>
-			{activePools.length ? (
-				activePools.map((farm, i) => (
-					<React.Fragment key={i}>
-						<FarmCard farm={farm} />
-						{((i+1) % (cardsPerRow) !== 0) && <StyledSpacer />}
-					</React.Fragment>
-				))
-			) : (
-				<StyledLoadingWrapper>
-					<Loader text="Cooking the rice ..." />
-				</StyledLoadingWrapper>
-			)}
-		</StyledCards>
-	)
+		<Tabs>
+			<TabList>
+				<Tab>Active Pools</Tab>
+				<Tab>Archived Pools</Tab>
+			</TabList>
+
+			<TabPanel>
+				<StyledCards>
+					{activePools.length ? (
+						activePools.map((farm, i) => (
+							<React.Fragment key={i}>
+								<FarmCard farm={farm} />
+								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
+							</React.Fragment>
+						))
+					) : (
+							<StyledLoadingWrapper>
+								<Loader text="Cooking the rice ..." />
+							</StyledLoadingWrapper>
+						)}
+				</StyledCards>
+			</TabPanel>
+			<TabPanel>
+				<StyledCards>
+					{archivedPools.length ? (
+						archivedPools.map((farm, i) => (
+							<React.Fragment key={i}>
+								<FarmCard farm={farm} />
+								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
+							</React.Fragment>
+						))
+					) : (
+							<StyledLoadingWrapper>
+								<Loader text="Cooking the rice ..." />
+							</StyledLoadingWrapper>
+						)}
+				</StyledCards>
+			</TabPanel>
+		</Tabs>
+	);
 }
 
 interface FarmCardProps {
@@ -248,7 +277,7 @@ const StyledLoadingWrapper = styled.div`
 
 const StyledCardWrapper = styled.div`
 	display: flex;
-	margin-bottom: ${(props) => props.theme.spacing[4]}px;
+	margin-top: ${(props) => props.theme.spacing[4]}px;
 	width: calc((900px - ${(props) => props.theme.spacing[4]}px * 2) / 3);
 	position: relative;
 `
