@@ -24,6 +24,8 @@ interface FarmWithStakedValue extends Farm, StakedValue {
 	apy: BigNumber
 }
 
+const cardsPerRow = 3;
+
 const FarmCards: React.FC = () => {
 	const [farms] = useFarms()
 	const { account } = useWallet()
@@ -39,8 +41,8 @@ const FarmCards: React.FC = () => {
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
 	const BAO_BER_BLOCK = new BigNumber(512000)
 
-	const rows = farms.reduce<FarmWithStakedValue[][]>(
-		(farmRows, farm, i) => {
+	const rows: FarmWithStakedValue[] = farms.map(
+		(farm, i) => {
 			const farmWithStakedValue = {
 				...farm,
 				...stakedValue[i],
@@ -51,30 +53,20 @@ const FarmCards: React.FC = () => {
 							.times(stakedValue[i].poolWeight)
 							.div(stakedValue[i].totalWethValue)
 					: null,
-			}
-			const newFarmRows = [...farmRows]
-			if (newFarmRows[newFarmRows.length - 1].length === 3) {
-				newFarmRows.push([farmWithStakedValue])
-			} else {
-				newFarmRows[newFarmRows.length - 1].push(farmWithStakedValue)
-			}
-			return newFarmRows
-		},
-		[[]],
-	)
+			};
+
+			return farmWithStakedValue;
+		}
+	);
 
 	return (
 		<StyledCards>
-			{rows[0].length ? (
-				rows.map((farmRow, i) => (
-					<StyledRow key={i}>
-						{farmRow.map((farm, j) => (
-							<React.Fragment key={j}>
-								<FarmCard farm={farm} />
-								{(j === 0 || j === 1) && <StyledSpacer />}
-							</React.Fragment>
-						))}
-					</StyledRow>
+			{rows.length ? (
+				rows.map((farm, i) => (
+					<React.Fragment key={i}>
+						<FarmCard farm={farm} />
+						{((i+1) % (cardsPerRow) !== 0) && <StyledSpacer />}
+					</React.Fragment>
 				))
 			) : (
 				<StyledLoadingWrapper>
@@ -229,8 +221,13 @@ const StyledCardAccent = styled.div`
 
 const StyledCards = styled.div`
 	width: 900px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-evenly;
 	@media (max-width: 768px) {
 		width: 100%;
+		flex-flow: column nowrap;
+		align-items: center;
 	}
 `
 
@@ -241,19 +238,9 @@ const StyledLoadingWrapper = styled.div`
 	justify-content: center;
 `
 
-const StyledRow = styled.div`
-	display: flex;
-	margin-bottom: ${(props) => props.theme.spacing[4]}px;
-	flex-flow: row wrap;
-	@media (max-width: 768px) {
-		width: 100%;
-		flex-flow: column nowrap;
-		align-items: center;
-	}
-`
-
 const StyledCardWrapper = styled.div`
 	display: flex;
+	margin-bottom: ${(props) => props.theme.spacing[4]}px;
 	width: calc((900px - ${(props) => props.theme.spacing[4]}px * 2) / 3);
 	position: relative;
 `
