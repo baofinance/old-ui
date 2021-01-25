@@ -15,8 +15,8 @@ import useAllStakedValue, {
 	StakedValue,
 } from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
-import useSushi from '../../../hooks/useSushi'
-import { getEarned, getMasterChefContract } from '../../../sushi/utils'
+import useBao from '../../../hooks/useBao'
+import { getEarned, getMasterChefContract } from '../../../bao/utils'
 import { bnToDec } from '../../../utils'
 import eggtart from '../../assets/img/icons/egg-tart.png'
 
@@ -29,15 +29,15 @@ const FarmCards: React.FC = () => {
 	const { account } = useWallet()
 	const stakedValue = useAllStakedValue()
 
-	const sushiIndex = farms.findIndex(({ tokenSymbol }) => tokenSymbol === 'BAO')
+	const baoIndex = farms.findIndex(({ tokenSymbol }) => tokenSymbol === 'BAO')
 
-	const sushiPrice =
-		sushiIndex >= 0 && stakedValue[sushiIndex]
-			? stakedValue[sushiIndex].tokenPriceInWeth
+	const baoPrice =
+		baoIndex >= 0 && stakedValue[baoIndex]
+			? stakedValue[baoIndex].tokenPriceInWeth
 			: new BigNumber(0)
 
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
-	const SUSHI_PER_BLOCK = new BigNumber(512000)
+	const BAO_BER_BLOCK = new BigNumber(512000)
 
 	const rows = farms.reduce<FarmWithStakedValue[][]>(
 		(farmRows, farm, i) => {
@@ -45,8 +45,8 @@ const FarmCards: React.FC = () => {
 				...farm,
 				...stakedValue[i],
 				apy: stakedValue[i]
-					? sushiPrice
-							.times(SUSHI_PER_BLOCK)
+					? baoPrice
+							.times(BAO_BER_BLOCK)
 							.times(BLOCKS_PER_YEAR)
 							.times(stakedValue[i].poolWeight)
 							.div(stakedValue[i].totalWethValue)
@@ -95,7 +95,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
 	const { account } = useWallet()
 	const { lpTokenAddress } = farm
-	const sushi = useSushi()
+	const bao = useBao()
 
 	const renderer = (countdownProps: CountdownRenderProps) => {
 		const { hours, minutes, seconds } = countdownProps
@@ -111,18 +111,18 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 
 	useEffect(() => {
 		async function fetchEarned() {
-			if (sushi) return
+			if (bao) return
 			const earned = await getEarned(
-				getMasterChefContract(sushi),
+				getMasterChefContract(bao),
 				lpTokenAddress,
 				account,
 			)
 			setHarvestable(bnToDec(earned))
 		}
-		if (sushi && account) {
+		if (bao && account) {
 			fetchEarned()
 		}
-	}, [sushi, lpTokenAddress, account, setHarvestable])
+	}, [bao, lpTokenAddress, account, setHarvestable])
 
 	const poolActive = true // startTime * 1000 - Date.now() <= 0
 	const tokenBuy = 'Buy ' + farm.tokenSymbol

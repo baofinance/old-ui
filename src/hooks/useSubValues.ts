@@ -9,27 +9,27 @@ import {
   getBaoPrice,
   getWethPriceContract,
   getBaoPriceContract,
-} from '../sushi/utils'
+} from '../bao/utils'
 import useLockedEarnings from './useLockedEarnings'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useSubValues = () => {
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
-  //const wethPriceContract = getWethPriceContract(sushi)
-  //const baoPriceContract = getBaoPriceContract(sushi)
+  const bao = useBao()
+  //const wethPriceContract = getWethPriceContract(bao)
+  //const baoPriceContract = getBaoPriceContract(bao)
   const locks = useLockedEarnings()
   const [usrSubText, setUsrSubText] = useState(new String())
   const [baoPrices, setBaoPrices] = useState(new BigNumber(0))
   const [wethPrices, setWethPrices] = useState(new BigNumber(0))
 
   const getInfo = useCallback(async () => {
-    if (sushi) {
-      const wethPriceFun = getWethPrice(sushi).then((response) => {
+    if (bao) {
+      const wethPriceFun = getWethPrice(bao).then((response) => {
         setWethPrices(response)
 
-        const baoPriceFun = getBaoPrice(sushi).then((response) => {
+        const baoPriceFun = getBaoPrice(bao).then((response) => {
           setBaoPrices(response)
           const currentRate = wethPrices
             .dividedBy(100000000)
@@ -57,10 +57,10 @@ const useSubValues = () => {
   }, [locks, usrSubText])
 
   useEffect(() => {
-    if (account && sushi) {
+    if (account && bao) {
       getInfo()
     }
-  }, [account, sushi, locks, usrSubText])
+  }, [account, bao, locks, usrSubText])
 
   return usrSubText.toString()
 }

@@ -17,11 +17,11 @@ import {
 	getBaoPrice,
 	getWethPriceContract,
 	getBaoPriceContract,
-} from '../../../sushi/utils'
+} from '../../../bao/utils'
 import { BigNumber } from 'bignumber.js'
 import Spacer from '../../../components/Spacer'
-import useSushi from '../../../hooks/useSushi'
-import bao from '../../../assets/img/bao.png'
+import useBao from '../../../hooks/useBao'
+import baoIcon from '../../../assets/img/bao.png'
 
 interface HarvestProps {
 	pid: number
@@ -32,7 +32,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
 	const locks = useLockedEarnings()
 	const [pendingTx, setPendingTx] = useState(false)
 	const { onReward } = useReward(pid)
-	const sushi = useSushi()
+	const bao = useBao()
 	const userInfo = useValues()
 	const userSubInfo = useSubValues()
 
@@ -42,7 +42,7 @@ const Harvest: React.FC<HarvestProps> = ({ pid }) => {
 				<StyledCardContentInner>
 					<StyledCardHeader>
 						<CardIcon>
-							<img src={bao} height={50} />
+							<img src={baoIcon} height={50} />
 						</CardIcon>
 						<Value value={getBalanceNumber(earnings)} />
 						<Label text="BAO Earned" />

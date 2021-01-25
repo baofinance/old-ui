@@ -8,7 +8,7 @@ import {
 } from './constants.js'
 
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
-import SushiAbi from './abi/sushi.json'
+import BaoAbi from './abi/bao.json'
 import MasterChefAbi from './abi/masterchef.json'
 import ERC20Abi from './abi/erc20.json'
 import WETHAbi from './abi/weth.json'
@@ -25,7 +25,7 @@ export class Contracts {
 		this.defaultGas = options.defaultGas
 		this.defaultGasPrice = options.defaultGasPrice
 
-		this.sushi = new this.web3.eth.Contract(SushiAbi)
+		this.bao = new this.web3.eth.Contract(BaoAbi)
 		this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
 		this.weth = new this.web3.eth.Contract(WETHAbi)
 		this.wethPrice = new this.web3.eth.Contract(ChainOracle)
@@ -51,7 +51,7 @@ export class Contracts {
 			else console.error('Contract address not found in network', networkId)
 		}
 
-		setProvider(this.sushi, contractAddresses.sushi[networkId])
+		setProvider(this.bao, contractAddresses.bao[networkId])
 		setProvider(this.masterChef, contractAddresses.masterChef[networkId])
 		setProvider(this.weth, contractAddresses.weth[networkId])
 		setProvider(this.wethPrice, contractAddresses.wethPrice[networkId])
@@ -66,7 +66,7 @@ export class Contracts {
 	}
 
 	setDefaultAccount(account) {
-		this.sushi.options.from = account
+		this.bao.options.from = account
 		this.masterChef.options.from = account
 		this.wethPrice.options.from = account
 		this.baoPrice.options.from = account

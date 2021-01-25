@@ -8,18 +8,18 @@ import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
 import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
-import SushiIcon from '../../../components/SushiIcon'
+import BaoIcon from '../../../components/BaoIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useSushi from '../../../hooks/useSushi'
+import useBao from '../../../hooks/useBao'
 import {
-	getSushiAddress,
-	getSushiSupply,
+	getBaoAddress,
+	getBaoSupply,
 	getReferrals,
 	getMasterChefContract,
-} from '../../../sushi/utils'
+} from '../../../bao/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
@@ -78,40 +78,40 @@ const Balances: React.FC = () => {
 	const [totalSupply, setTotalSupply] = useState<BigNumber>()
 	const [totalReferrals, setTotalReferrals] = useState<string>()
 	const [refLink, setRefLink] = useState<string>()
-	const sushi = useSushi()
-	const sushiBalance = useTokenBalance(getSushiAddress(sushi))
-	const masterChefContract = getMasterChefContract(sushi)
+	const bao = useBao()
+	const baoBalance = useTokenBalance(getBaoAddress(bao))
+	const masterChefContract = getMasterChefContract(bao)
 	const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
 	useEffect(() => {
 		async function fetchTotalSupply() {
-			const supply = await getSushiSupply(sushi)
+			const supply = await getBaoSupply(bao)
 			setTotalSupply(supply)
 		}
-		if (sushi) {
+		if (bao) {
 			fetchTotalSupply()
 		}
-	}, [sushi, setTotalSupply])
+	}, [bao, setTotalSupply])
 
 	useEffect(() => {
 		async function fetchTotalReferrals() {
 			const referrals = await getReferrals(masterChefContract, account)
 			setTotalReferrals(referrals)
 		}
-		if (sushi) {
+		if (bao) {
 			fetchTotalReferrals()
 		}
-	}, [sushi, setTotalReferrals])
+	}, [bao, setTotalReferrals])
 
 	useEffect(() => {
 		async function fetchRefLink() {
 			const usrReflink = 'www.bao.finance?ref=' + account
 			setRefLink(usrReflink)
 		}
-		if (sushi) {
+		if (bao) {
 			fetchRefLink()
 		}
-	}, [sushi, setRefLink])
+	}, [bao, setRefLink])
 
 	return (
 		<Fragment>
@@ -120,12 +120,12 @@ const Balances: React.FC = () => {
 					<CardContent>
 						<StyledBalances>
 							<StyledBalance>
-								<SushiIcon />
+								<BaoIcon />
 								<Spacer />
 								<div style={{ flex: 1 }}>
 									<Label text="Your BAO Balance" />
 									<Value
-										value={account ? getBalanceNumber(sushiBalance) : 'Locked'}
+										value={account ? getBalanceNumber(baoBalance) : 'Locked'}
 									/>
 								</div>
 							</StyledBalance>

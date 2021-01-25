@@ -9,28 +9,28 @@ import {
   getBaoPrice,
   getWethPriceContract,
   getBaoPriceContract,
-} from '../sushi/utils'
+} from '../bao/utils'
 import useLockedEarnings from './useLockedEarnings'
-import useSushi from './useSushi'
+import useBao from './useBao'
 import useBlock from './useBlock'
 
 const useValues = () => {
   const { account }: { account: string } = useWallet()
-  const sushi = useSushi()
+  const bao = useBao()
   const locks = useLockedEarnings()
-  //const wethPriceContract = getWethPriceContract(sushi)
-  //const baoPriceContract = getBaoPriceContract(sushi)
+  //const wethPriceContract = getWethPriceContract(bao)
+  //const baoPriceContract = getBaoPriceContract(bao)
   const [usrText, setUsrText] = useState(new String())
   const [baoPrices, setBaoPrices] = useState(new BigNumber(0))
   const [wethPrices, setWethPrices] = useState(new BigNumber(0))
 
   const getInfo = useCallback(async () => {
-    console.log(sushi)
-    if (sushi) {
-      const wethPriceFun = getWethPrice(sushi).then((response) => {
+    console.log(bao)
+    if (bao) {
+      const wethPriceFun = getWethPrice(bao).then((response) => {
         setWethPrices(response)
 
-        const baoPriceFun = getBaoPrice(sushi).then((response) => {
+        const baoPriceFun = getBaoPrice(bao).then((response) => {
           setBaoPrices(response)
           console.log('baovalues')
           console.log(response)
@@ -56,10 +56,10 @@ const useValues = () => {
   }, [locks, usrText])
 
   useEffect(() => {
-    if (account && sushi) {
+    if (account && bao) {
       getInfo()
     }
-  }, [account, sushi, locks, usrText])
+  }, [account, bao, locks, usrText])
 
   return usrText.toString()
 }
