@@ -10,6 +10,7 @@ import IconButton from '../../../components/IconButton'
 import { AddIcon } from '../../../components/icons'
 import Label from '../../../components/Label'
 import Value from '../../../components/Value'
+import { PoolType } from '../../../contexts/Farms/types'
 import useAllowance from '../../../hooks/useAllowance'
 import useApprove from '../../../hooks/useApprove'
 import useModal from '../../../hooks/useModal'
@@ -24,10 +25,11 @@ import WithdrawModal from './WithdrawModal'
 interface StakeProps {
 	lpContract: Contract
 	pid: number
-	tokenName: string
+	tokenName: string,
+	poolType: PoolType
 }
 
-const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
+const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, poolType }) => {
 	const [requestedApproval, setRequestedApproval] = useState(false)
 
 	const allowance = useAllowance(lpContract)
@@ -92,9 +94,11 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
 									onClick={onPresentWithdraw}
 								/>
 								<StyledActionSpacer />
+								{poolType !== PoolType.ARCHIVED ? (
 								<IconButton onClick={onPresentDeposit}>
 									<AddIcon />
 								</IconButton>
+								) : ''}
 							</>
 						)}
 					</StyledCardActions>
