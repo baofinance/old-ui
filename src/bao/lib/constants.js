@@ -399,7 +399,7 @@ export const supportedPools = [
 			1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
 		},
 		tokenDecimals: 18,
-		name: 'xSushi A\'la mode',
+		name: "xSushi·A'la·mode",
 		symbol: 'xSushi',
 		tokenSymbol: 'xSushi',
 		poolType: 'sushi',
@@ -455,8 +455,7 @@ export const supportedPools = [
 		tokenSymbol: 'GRT',
 		poolType: 'uni',
 		icon: '',
-		refUrl:
-			'https://ftx.com/trade/GRT/USD#a=getbao',
+		refUrl: 'https://ftx.com/trade/GRT/USD#a=getbao',
 	},
 	{
 		pid: 209,
@@ -506,8 +505,7 @@ export const supportedPools = [
 		tokenSymbol: '1INCH',
 		poolType: 'uni',
 		icon: '',
-		refUrl:
-			'https://ftx.com/trade/FIDA/USD#a=getbao',
+		refUrl:	'https://ftx.com/trade/FIDA/USD#a=getbao',
 	},
 	{
 		pid: 211,
