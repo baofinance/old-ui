@@ -244,7 +244,7 @@ export const addressMap = {
 	TVK: '0xd084b83c305dafd76ae3e1b4e1f1fe2ecccb3988',
 	FRAX: '0x853d955acef822db058eb8505911ed77f175b99e',
 	LDO: '0x5a98fcbea516cf06857215779fd812ca3bef1b32',
-	BOR: '0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9'
+	BOR: '0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9',
 }
 
 export const contractAddresses = {
@@ -305,7 +305,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-		{
+	{
 		pid: 200,
 		lpAddresses: {
 			1: '0x0eee7f7319013df1f24f5eaf83004fcf9cf49245',
@@ -322,7 +322,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-			{
+	{
 		pid: 201,
 		lpAddresses: {
 			1: '0x072b999fc3d82f9ea08b8adbb9d63a980ff2b14d',
@@ -356,7 +356,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-		{
+	{
 		pid: 203,
 		lpAddresses: {
 			1: '0xc599f66e20a8420894d980624671937d5d7e4ea5',
@@ -373,7 +373,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-			{
+	{
 		pid: 204,
 		lpAddresses: {
 			1: '0x28bfcf4385c8d32566d8a89a64b7c1e079cb81e6',
@@ -390,7 +390,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-			{
+	{
 		pid: 205,
 		lpAddresses: {
 			1: '0x8798249c2e607446efb7ad49ec89dd1865ff4272',
@@ -407,7 +407,7 @@ export const supportedPools = [
 		refUrl:
 			'https://sushiswap.fi/token/0x8798249c2e607446efb7ad49ec89dd1865ff4272',
 	},
-			{
+	{
 		pid: 206,
 		lpAddresses: {
 			1: '0x321198908bd33b066252d63d363667e3f7094a34',
@@ -424,7 +424,7 @@ export const supportedPools = [
 		refUrl:
 			'https://sushiswap.fi/token/0x8798249c2e607446efb7ad49ec89dd1865ff4272',
 	},
-			{
+	{
 		pid: 207,
 		lpAddresses: {
 			1: '0x36e2fcccc59e5747ff63a03ea2e5c0c2c14911e7',
@@ -441,7 +441,7 @@ export const supportedPools = [
 		refUrl:
 			'https://sushiswap.fi/token/0x8798249c2e607446efb7ad49ec89dd1865ff4272',
 	},
-				{
+	{
 		pid: 208,
 		lpAddresses: {
 			1: '0x2e81ec0b8b4022fac83a21b2f2b4b8f5ed744d70',
@@ -458,7 +458,7 @@ export const supportedPools = [
 		refUrl:
 			'https://ftx.com/trade/GRT/USD#a=getbao',
 	},
-					{
+	{
 		pid: 209,
 		lpAddresses: {
 			1: '0xcc39592f5cb193a70f262aa301f54db1d600e6da',
@@ -475,7 +475,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RUNE',
 	},
-						{
+	{
 		pid: 210,
 		lpAddresses: {
 			1: '0x26aad2da94c59524ac0d93f6d6cbf9071d7086f2',
@@ -492,7 +492,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/1INCH',
 	},
-							{
+	{
 		pid: 211,
 		lpAddresses: {
 			1: '0x1985b987c21d896080ebdbb69dafe82b0f9eb207',
@@ -509,7 +509,7 @@ export const supportedPools = [
 		refUrl:
 			'https://ftx.com/trade/FIDA/USD#a=getbao',
 	},
-								{
+	{
 		pid: 211,
 		lpAddresses: {
 			1: '0x31d64f9403e82243e71c2af9d8f56c7dbe10c178',
@@ -3601,7 +3601,7 @@ export const supportedPools = [
 		icon: '/scientist.png',
 		refUrl: 'https://www.hoozh.com/friends/26368269?localeLang=en&',
 	},
-				{
+	{
 		pid: 213,
 		lpAddresses: {
 			1: '0x598e740cda7c525080d3fcb9fa7c4e1bd0044b34',
@@ -3618,7 +3618,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/sETH',
 	},
-					{
+	{
 		pid: 214,
 		lpAddresses: {
 			1: '0x6147805e1011417b93e5d693424a62a70d09d0e5',
@@ -3635,7 +3635,7 @@ export const supportedPools = [
 		refUrl:
 			'https://app.uniswap.org/#/swap?outputCurrency=0xe95a203b1a91a908f9b9ce46459d101078c2c3cb',
 	},
-						{
+	{
 		pid: 215,
 		lpAddresses: {
 			1: '0x3c70f4faea49e50adc8305f2e1aa0ea326a54ffc',
@@ -3652,7 +3652,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/INJ',
 	},
-							{
+	{
 		pid: 216,
 		lpAddresses: {
 			1: '0x208bd5dc470eba21571ddb439801a614ed346376',
@@ -3669,7 +3669,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/GRO',
 	},
-								{
+	{
 		pid: 217,
 		lpAddresses: {
 			1: '0x0f5a2eb364d8b722cba4e1e30e2cf57b6f515b2a',
@@ -3686,7 +3686,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/TVK',
 	},
-									{
+	{
 		pid: 218,
 		lpAddresses: {
 			1: '0x97c4adc5d28a86f9470c70dd91dc6cc2f20d2d4d',
@@ -3703,7 +3703,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/FRAX',
 	},
-									{
+	{
 		pid: 219,
 		lpAddresses: {
 			1: '0xae461ca67b15dc8dc81ce7615e0320da1a9ab8d5',
@@ -3720,7 +3720,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DAI',
 	},
-										{
+	{
 		pid: 220,
 		lpAddresses: {
 			1: '0x454f11d58e27858926d7a4ece8bfea2c33e97b13',
@@ -3737,7 +3737,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/LDO',
 	},
-										{
+	{
 		pid: 221,
 		lpAddresses: {
 			1: '0x97524f602706cdb64f9dfa71909ace06e98200b6',
@@ -3754,7 +3754,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BADGER',
 	},
-										{
+	{
 		pid: 222,
 		lpAddresses: {
 			1: '0x44d34985826578e5ba24ec78c93be968549bb918',
