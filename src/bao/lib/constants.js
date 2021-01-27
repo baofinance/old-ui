@@ -454,7 +454,7 @@ export const supportedPools = [
 		symbol: 'GRT-ETH UNIV2',
 		tokenSymbol: 'GRT',
 		poolType: 'uni',
-		icon: '',
+		icon: '/gummy-bear.png',
 		refUrl: 'https://ftx.com/trade/GRT/USD#a=getbao',
 	},
 	{
@@ -470,7 +470,7 @@ export const supportedPools = [
 		symbol: 'RUNE-ETH SLP',
 		tokenSymbol: 'RUNE',
 		poolType: 'sushi',
-		icon: '',
+		icon: '/ramennoodle.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/RUNE',
 	},
@@ -487,7 +487,7 @@ export const supportedPools = [
 		symbol: '1INCH-ETH UNIV2',
 		tokenSymbol: '1INCH',
 		poolType: 'uni',
-		icon: '',
+		icon: '/moon-cakers.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/1INCH',
 	},
@@ -504,7 +504,7 @@ export const supportedPools = [
 		symbol: 'FIDA-ETH SLP',
 		tokenSymbol: '1INCH',
 		poolType: 'uni',
-		icon: '',
+		icon: '/unicorncake.png',
 		refUrl: 'https://ftx.com/trade/FIDA/USD#a=getbao',
 	},
 	{
@@ -520,7 +520,7 @@ export const supportedPools = [
 		symbol: 'NFTX-ETH SLP',
 		tokenSymbol: 'NFTX',
 		poolType: 'sushi',
-		icon: '',
+		icon: '/nuggets.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/NFTX',
 	},
@@ -3612,7 +3612,7 @@ export const supportedPools = [
 		symbol: 'sETH-ETH UNIV2',
 		tokenSymbol: 'sETH',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/eth.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/sETH',
 	},
@@ -3629,7 +3629,7 @@ export const supportedPools = [
 		symbol: 'ankrETH-ETH UNIV2',
 		tokenSymbol: 'ankrETH',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/eth.png',
 		refUrl:
 			'https://app.uniswap.org/#/swap?outputCurrency=0xe95a203b1a91a908f9b9ce46459d101078c2c3cb',
 	},
@@ -3646,7 +3646,7 @@ export const supportedPools = [
 		symbol: 'INJ/ETH UNIV2',
 		tokenSymbol: 'INJ',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/injection.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/INJ',
 	},
@@ -3663,7 +3663,7 @@ export const supportedPools = [
 		symbol: 'GRO/ETH UNIV2',
 		tokenSymbol: 'GRO',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/lab-meat.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/GRO',
 	},
@@ -3680,7 +3680,7 @@ export const supportedPools = [
 		symbol: 'TVK/ETH UNIV2',
 		tokenSymbol: 'TVK',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/picnic.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/TVK',
 	},
@@ -3697,7 +3697,7 @@ export const supportedPools = [
 		symbol: 'FRAX/USDC UNIV2',
 		tokenSymbol: 'FRAX',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/fried-potatoes.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/FRAX',
 	},
@@ -3714,7 +3714,7 @@ export const supportedPools = [
 		symbol: 'DAI/USDC UNIV2',
 		tokenSymbol: 'DAI',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/gravy.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/DAI',
 	},
@@ -3731,7 +3731,7 @@ export const supportedPools = [
 		symbol: 'LDO/ETH UNIV2',
 		tokenSymbol: 'LDO',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/lime.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/LDO',
 	},
@@ -3748,7 +3748,7 @@ export const supportedPools = [
 		symbol: 'BADGER/ETH UNIV2',
 		tokenSymbol: 'BADGER',
 		poolType: 'uni',
-		icon: '/bao.png',
+		icon: '/badger.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BADGER',
 	},
@@ -3765,7 +3765,7 @@ export const supportedPools = [
 		symbol: 'BOR/ETH UNIV2',
 		tokenSymbol: 'BOR',
 		poolType: 'sushi',
-		icon: '/bao.png',
+		icon: '/steak.png',
 		refUrl:
 			'https://sushiswap.fi/token/0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9',
 	},
