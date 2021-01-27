@@ -505,7 +505,7 @@ export const supportedPools = [
 		tokenSymbol: '1INCH',
 		poolType: 'uni',
 		icon: '',
-		refUrl:	'https://ftx.com/trade/FIDA/USD#a=getbao',
+		refUrl: 'https://ftx.com/trade/FIDA/USD#a=getbao',
 	},
 	{
 		pid: 211,
