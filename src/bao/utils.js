@@ -63,6 +63,7 @@ export const getFarms = (bao) => {
 					lpAddress,
 					lpContract,
 					refUrl,
+					poolType,
 				}) => ({
 					pid,
 					id: symbol,
@@ -78,6 +79,7 @@ export const getFarms = (bao) => {
 					earnTokenAddress: bao.contracts.bao.options.address,
 					icon,
 					refUrl,
+					poolType,
 				}),
 		  )
 		: []

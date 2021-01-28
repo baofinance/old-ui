@@ -1,5 +1,11 @@
 import { Contract } from 'web3-eth-contract'
 
+export enum PoolType {
+  SUSHI = 'sushi',
+  UNI = 'uni',
+  ARCHIVED = 'archived'
+}
+
 export interface Farm {
   pid: number
   name: string
@@ -13,6 +19,7 @@ export interface Farm {
   id: string
   tokenSymbol: string
   refUrl: string
+  poolType?: PoolType
 }
 
 export interface FarmsContext {

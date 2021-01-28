@@ -1,0 +1,15 @@
+.react-tabs__tab-list {
+    border-bottom-color: #e2d6cf;
+}
+.react-tabs__tab {
+    color: #aa9585;
+    font-weight: 700;
+}
+.react-tabs__tab:hover {
+    color: #805e49;
+}
+.react-tabs__tab--selected, .react-tabs__tab--selected:hover {
+    color: #d16c00;
+    border-color: #e2d6cf; 
+    background: #fff8ee;
+}
