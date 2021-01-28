@@ -339,7 +339,7 @@ export const supportedPools = [
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/BAO',
 	},
-	{
+	/*{
 		pid: 202,
 		lpAddresses: {
 			1: '0x3442801e0ddb9a6d06bc232d51725a658c8bfe10',
@@ -523,7 +523,7 @@ export const supportedPools = [
 		icon: '/nuggets.png',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/ETH/NFTX',
-	},
+	},*/
 	{
 		pid: 1,
 		lpAddresses: {
@@ -3599,7 +3599,7 @@ export const supportedPools = [
 		icon: '/scientist.png',
 		refUrl: 'https://www.hoozh.com/friends/26368269?localeLang=en&',
 	},
-	{
+	/*{
 		pid: 213,
 		lpAddresses: {
 			1: '0x598e740cda7c525080d3fcb9fa7c4e1bd0044b34',
@@ -3768,5 +3768,5 @@ export const supportedPools = [
 		icon: '/steak.png',
 		refUrl:
 			'https://sushiswap.fi/token/0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9',
-	},
+	},*/
 ]
