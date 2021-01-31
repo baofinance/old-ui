@@ -504,7 +504,7 @@ export const supportedPools = [
 		name: 'FIDA Fondant',
 		symbol: 'FIDA-ETH SLP',
 		tokenSymbol: '1INCH',
-		poolType: 'uni',
+		poolType: 'sushi',
 		icon: '/unicorncake.png',
 		refUrl: 'https://ftx.com/trade/FIDA/USD#a=getbao',
 	},
@@ -3634,7 +3634,7 @@ export const supportedPools = [
 		refUrl:
 			'https://app.uniswap.org/#/swap?outputCurrency=0xe95a203b1a91a908f9b9ce46459d101078c2c3cb',
 	},
-		{
+	{
 		pid: 215,
 		lpAddresses: {
 			1: '0x4028daac072e492d34a3afdbef0ba7e35d8b55c4',
@@ -3780,7 +3780,7 @@ export const supportedPools = [
 		},
 		tokenDecimals: 18,
 		name: 'Bor(ring) meal',
-		symbol: 'BOR/ETH UNIV2',
+		symbol: 'BOR/ETH SLP',
 		tokenSymbol: 'BOR',
 		poolType: 'sushi',
 		icon: '/steak.png',
