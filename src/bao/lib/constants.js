@@ -246,7 +246,6 @@ export const addressMap = {
 	LDO: '0x5a98fcbea516cf06857215779fd812ca3bef1b32',
 	BOR: '0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9',
 	'1Inch': '0x111111111117dc0aa78b770fa6a738034120c302',
-	
 }
 
 export const contractAddresses = {
