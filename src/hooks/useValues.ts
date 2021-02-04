@@ -47,7 +47,7 @@ const useValues = () => {
           const annualPrice = userValue.dividedBy(3).toFormat(2)
           console.log(annualPrice + ' annual')
           const wethText = userValue.toFormat(2)
-          const usrText1 = 'Your Locked BAO is worth $' + wethText + ''
+          const usrText1 = 'Your Locked BAO is worth approximately $' + wethText + ''
           setUsrText(usrText1)
           console.log(usrText)
         })
