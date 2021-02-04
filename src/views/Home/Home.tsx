@@ -35,7 +35,7 @@ const Home: React.FC = () => {
 			</div>
 			<Spacer size="lg" />
 			<StyledInfo>
-				🏆<b>Pro Tip</b>: BAO-ETH UNI-V2 LP token pool yields 32x more tokens
+				🏆<b>Pro Tip</b>: BAO-ETH UNI-V2 LP token pool yields 55x more tokens
 				than other pairs.
 			</StyledInfo>
 			<Spacer size="md" />
