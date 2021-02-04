@@ -503,7 +503,7 @@ export const supportedPools = [
 		tokenDecimals: 18,
 		name: 'FIDA Fondant',
 		symbol: 'FIDA-ETH UNIV2',
-		tokenSymbol: '1INCH',
+		tokenSymbol: 'FIDA',
 		poolType: 'uni',
 		icon: '/unicorncake.png',
 		refUrl: 'https://ftx.com/trade/FIDA/USD#a=getbao',
