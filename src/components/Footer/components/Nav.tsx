@@ -16,11 +16,20 @@ const Nav: React.FC = () => {
 			>
 				Uniswap BAO-ETH
 			</StyledLink>
+			<StyledLink
+				target="_blank"
+				href="https://sushiswap.fi/pair/0x0eee7f7319013df1f24f5eaf83004fcf9cf49245"
+			>
+				SushiSwap BAO-ETH
+			</StyledLink>
 			<StyledLink target="_blank" href="https://discord.gg/BW3P62vJXT">
 				Discord
 			</StyledLink>
 			<StyledLink target="_blank" href="https://twitter.com/thebaoman">
 				Twitter
+			</StyledLink>
+			<StyledLink target="_blank" href="https://thebaoman.medium.com/">
+				Medium
 			</StyledLink>
 		</StyledNav>
 	)
