@@ -14,12 +14,12 @@ const Home: React.FC = () => {
 			<PageHeader
 				icon={baoBanner}
 				title="BaoChef is Ready"
-				subtitle="Stake Uniswap LP tokens and earn BAO!"
+				subtitle="Stake Sushiswap and Uniswap LP tokens to earn BAO!"
 			/>
 			<StyledInfo>
 				Be sure to read <a href="https://docs.bao.finance">docs.bao.finance</a>{' '}
 				before using the pools so you are familiar with protocol risks and
-				fees.!
+				fees!
 			</StyledInfo>
 			<Spacer size="md" />
 			<Container>
