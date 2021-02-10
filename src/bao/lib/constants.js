@@ -3237,7 +3237,7 @@ export const supportedPools = [
 		},
 		tokenDecimals: 18,
 		name: 'BUSD BBQ Pork Bun',
-		symbol: 'BUSD-ETH UNIV2',
+		symbol: 'BUSD-USDC UNIV2',
 		tokenSymbol: 'BUSD',
 		icon: '/meat-bun.png',
 		refUrl: 'https://coinsbit.io/referral/fdfdc261-0d2c-4681-8878-5915c74af58e',
