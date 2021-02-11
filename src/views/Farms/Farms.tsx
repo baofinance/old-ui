@@ -27,7 +27,7 @@ const Farms: React.FC = () => {
 						<Route exact path={path}>
 							<PageHeader
 								icon={baoBanner}
-								subtitle="Earn BAO tokens by staking Uniswap V2 LP Tokens. And soon generate synthetic assets!"
+								subtitle="Earn BAO tokens by staking Sushiswap and Uniswap LP tokens. And soon generate synthetic assets!"
 								title="Select Your Fav Dim Sum Entrees!"
 							/>
 							<FarmCards />
