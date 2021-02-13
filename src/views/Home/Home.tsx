@@ -35,8 +35,9 @@ const Home: React.FC = () => {
 			</div>
 			<Spacer size="lg" />
 			<StyledInfo>
-				🏆<b>Pro Tip</b>: BAO-ETH UNI-V2 LP token pool yields 32x more tokens
-				than other pairs.
+				🏆<b>Pro Tip</b>: BAO-ETH UNIV2 has the biggest weight of all pools. <br/>
+				Currently it has 55x more tokens allocated in the BAO reward pool than any other pair. <br/>
+				(Reward weights are already factored in the APY calculation)
 			</StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
