@@ -22,6 +22,11 @@ const Home: React.FC = () => {
 				fees!
 			</StyledInfo>
 			<Spacer size="md" />
+			<StyledInfo>
+				Before the March 1st migration, all users should harvest their currently
+				 staked funds. Failure to do so will result in 75% loss of pending Bao.
+			</StyledInfo>
+			<Spacer size="md" />
 			<Container>
 				<Balances />
 			</Container>
