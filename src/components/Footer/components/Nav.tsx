@@ -18,7 +18,7 @@ const Nav: React.FC = () => {
 			</StyledLink>
 			<StyledLink
 				target="_blank"
-				href="https://sushiswap.fi/pair/0x0eee7f7319013df1f24f5eaf83004fcf9cf49245"
+				href="https://app.sushiswap.fi/pair/0x0eee7f7319013df1f24f5eaf83004fcf9cf49245"
 			>
 				SushiSwap BAO-ETH
 			</StyledLink>
