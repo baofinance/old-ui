@@ -22,6 +22,11 @@ const Home: React.FC = () => {
 				fees!
 			</StyledInfo>
 			<Spacer size="md" />
+			<StyledInfo>
+				Before the March 1st migration, all users should harvest their currently
+				 staked funds. Failure to do so will result in 75% loss of pending Bao.
+			</StyledInfo>
+			<Spacer size="md" />
 			<Container>
 				<Balances />
 			</Container>
@@ -35,9 +40,9 @@ const Home: React.FC = () => {
 			</div>
 			<Spacer size="lg" />
 			<StyledInfo>
-				🏆<b>Pro Tip</b>: BAO-ETH UNI-V2 LP token pool yields 32x more tokens
-				than other pairs.
-			</StyledInfo>
+				🏆<b>Pro Tip</b>: BAO-ETH UNIV2 has the biggest weight of all pools. Check
+                them <a href="https://docs.bao.finance/pool-weights">here</a>{'.'}
+            </StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
 				💲<b>Pro Tip</b>: The affiliate links from the "Buy X" buttons generate
