@@ -40,9 +40,9 @@ const Home: React.FC = () => {
 			</div>
 			<Spacer size="lg" />
 			<StyledInfo>
-				🏆<b>Pro Tip</b>: BAO-ETH UNI-V2 LP token pool yields 32x more tokens
-				than other pairs.
-			</StyledInfo>
+				🏆<b>Pro Tip</b>: BAO-ETH UNIV2 has the biggest weight of all pools. Check
+                them <a href="https://docs.bao.finance/pool-weights">here</a>{'.'}
+            </StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
 				💲<b>Pro Tip</b>: The affiliate links from the "Buy X" buttons generate
