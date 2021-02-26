@@ -31,6 +31,12 @@ const Nav: React.FC = () => {
 			>
 				Vote
 			</StyledAbsoluteLink>
+			<StyledAbsoluteLink
+				href="https://gov.bao.finance"
+				target="_blank"
+			>
+				Forum
+			</StyledAbsoluteLink>
 			<StyledAbsoluteLink href="https://docs.bao.finance" target="_blank">
 				About
 			</StyledAbsoluteLink>
