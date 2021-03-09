@@ -23,8 +23,7 @@ const Home: React.FC = () => {
 			</StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
-				Before the March 1st migration, all users should harvest their currently
-				 staked funds. Failure to do so will result in 75% loss of pending Bao.
+				Please note this is the mainnet version of Bao, for xDai visit: <a href="https://xdai.bao.finance">xdai.bao.finance</a>
 			</StyledInfo>
 			<Spacer size="md" />
 			<Container>
