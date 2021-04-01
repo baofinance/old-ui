@@ -85,11 +85,14 @@ export const getFarms = (bao) => {
 		: []
 }
 
-export const getPoolWeight = async (masterChefContract, pid) => {
-	const [{ allocPoint }, totalAllocPoint] = await Promise.all([
-		masterChefContract.methods.poolInfo(pid).call(),
-		masterChefContract.methods.totalAllocPoint().call(),
-	])
+export const getPoolWeight = async (masterChefContract, pid, batchRequest) => {
+	const [{ allocPoint }, totalAllocPoint] = await addCallsToBatch(
+		batchRequest,
+		[
+			masterChefContract.methods.poolInfo(pid).call,
+			masterChefContract.methods.totalAllocPoint().call,
+		],
+	)
 
 	return new BigNumber(allocPoint).div(new BigNumber(totalAllocPoint))
 }
@@ -102,6 +105,22 @@ export const getLockedEarned = async (baoContract, account) => {
 	return baoContract.methods.lockOf(account).call()
 }
 
+export const addCallsToBatch = (batchRequest, calls) => {
+	let promises = calls.map((call) => {
+		return new Promise((resolve, reject) => {
+			let request = call.request((error, data) => {
+				if (error) {
+					reject(error)
+				} else {
+					resolve(data)
+				}
+			})
+			batchRequest.add(request)
+		})
+	})
+	return Promise.all(promises)
+}
+
 export const getTotalLPWethValue = async (
 	masterChefContract,
 	wethContract,
@@ -109,23 +128,25 @@ export const getTotalLPWethValue = async (
 	tokenContract,
 	tokenDecimals,
 	pid,
+	batchRequest,
 ) => {
-	const [
-		tokenAmountWholeLP,
-		balance,
-		totalSupply,
-		lpContractWeth,
-		poolWeight,
-	] = await Promise.all([
-		tokenContract.methods.balanceOf(lpContract.options.address).call(),
-		lpContract.methods.balanceOf(masterChefContract.options.address).call(),
-		lpContract.methods.totalSupply().call(),
-		wethContract.methods.balanceOf(lpContract.options.address).call(),
-		getPoolWeight(masterChefContract, pid),
+	const poolWeightPromise = getPoolWeight(masterChefContract, pid, batchRequest)
+
+	const batchPromise = addCallsToBatch(batchRequest, [
+		tokenContract.methods.balanceOf(lpContract.options.address).call,
+		lpContract.methods.balanceOf(masterChefContract.options.address).call,
+		lpContract.methods.totalSupply().call,
+		wethContract.methods.balanceOf(lpContract.options.address).call,
 	])
+
+	const [
+		[tokenAmountWholeLP, balance, totalSupply, lpContractWeth],
+		poolWeight,
+	] = await Promise.all([batchPromise, poolWeightPromise])
 
 	// Return p1 * w1 * 2
 	const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
+	// TODO: this is zero for non WETH pairs.
 	const lpWethWorth = new BigNumber(lpContractWeth)
 	const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
 	// Calculate

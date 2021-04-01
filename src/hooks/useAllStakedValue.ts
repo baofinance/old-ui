@@ -32,29 +32,36 @@ const useAllStakedValue = () => {
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
-    const balances: Array<StakedValue> = await Promise.all(
-      farms.map(
-        ({
-          pid,
+    console.log('%cFetch all staked value', 'background-color: hotpink;')
+    // @ts-ignore TODO:
+    const batchRequest = new bao.web3.BatchRequest()
+
+    const balancePromises = farms.map(
+      ({
+        pid,
+        lpContract,
+        tokenContract,
+        tokenDecimals,
+      }: {
+        pid: number
+        lpContract: Contract
+        tokenContract: Contract
+        tokenDecimals: number
+      }) =>
+        getTotalLPWethValue(
+          masterChefContract,
+          wethContract,
           lpContract,
           tokenContract,
           tokenDecimals,
-        }: {
-          pid: number
-          lpContract: Contract
-          tokenContract: Contract
-          tokenDecimals: number
-        }) =>
-          getTotalLPWethValue(
-            masterChefContract,
-            wethContract,
-            lpContract,
-            tokenContract,
-            tokenDecimals,
-            pid,
-          ),
-      ),
+          pid,
+          // batchRequest,
+        ),
     )
+
+    batchRequest.execute()
+
+    const balances: Array<StakedValue> = await Promise.all(balancePromises)
 
     setBalance(balances)
   }, [account, masterChefContract, bao])
@@ -63,7 +70,7 @@ const useAllStakedValue = () => {
     if (account && masterChefContract && bao) {
       fetchAllStakedValue()
     }
-  }, [account, block, masterChefContract, setBalance, bao])
+  }, [account, masterChefContract, setBalance, bao])
 
   return balances
 }
