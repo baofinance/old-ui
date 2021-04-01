@@ -55,7 +55,7 @@ const useAllStakedValue = () => {
           tokenContract,
           tokenDecimals,
           pid,
-          // batchRequest,
+          batchRequest,
         ),
     )
 
