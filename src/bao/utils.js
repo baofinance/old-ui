@@ -1,3 +1,4 @@
+import { Fetcher, WETH, Route } from '@uniswap/sdk'
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { supportedPools } from './lib/constants'
@@ -57,9 +58,12 @@ export const getFarms = (bao) => {
 					symbol,
 					icon,
 					tokenAddress,
+					denominatorAddress,
+					mainnetDenominatorAddress,
 					tokenDecimals,
 					tokenSymbol,
 					tokenContract,
+					denominatorContract,
 					lpAddress,
 					lpContract,
 					refUrl,
@@ -72,9 +76,12 @@ export const getFarms = (bao) => {
 					lpTokenAddress: lpAddress,
 					lpContract,
 					tokenAddress,
+					denominatorAddress,
+					mainnetDenominatorAddress,
 					tokenDecimals,
 					tokenSymbol,
 					tokenContract,
+					denominatorContract,
 					earnToken: 'BAO',
 					earnTokenAddress: bao.contracts.bao.options.address,
 					icon,
@@ -121,40 +128,87 @@ export const addCallsToBatch = (batchRequest, calls) => {
 	return Promise.all(promises)
 }
 
+export const getDenominatorWethValueAndDecimals = async (
+	mainnetDenominatorAddress,
+) => {
+	console.log('non eth pair')
+	const denominatorTokenDetails = await Fetcher.fetchTokenData(
+		1,
+		mainnetDenominatorAddress,
+	)
+	const denominatorWethPair = await Fetcher.fetchPairData(
+		denominatorTokenDetails,
+		WETH[1],
+	)
+	const route = new Route([denominatorWethPair], denominatorTokenDetails)
+	return {
+		wethValue: route.midPrice.toSignificant(6),
+		decimals: denominatorTokenDetails.decimals,
+	}
+}
+
 export const getTotalLPWethValue = async (
 	masterChefContract,
-	wethContract,
 	lpContract,
 	tokenContract,
+	denominatorContract,
+	mainnetDenominatorAddress,
 	tokenDecimals,
 	pid,
 	batchRequest,
 ) => {
 	const poolWeightPromise = getPoolWeight(masterChefContract, pid, batchRequest)
 
+	// Query contracts to get stats about the pool.
 	const batchPromise = addCallsToBatch(batchRequest, [
+		// Amount of token in the LP contract
 		tokenContract.methods.balanceOf(lpContract.options.address).call,
+		// Amount of LP token staked in masterchef contract
 		lpContract.methods.balanceOf(masterChefContract.options.address).call,
+		// TODO: we only need to call this once, I think.
 		lpContract.methods.totalSupply().call,
-		wethContract.methods.balanceOf(lpContract.options.address).call,
+		denominatorContract.methods.balanceOf(lpContract.options.address).call,
 	])
 
+	// TODO: this needs to determine if it's eth or not.
+	const denominatorWethValuePromise = mainnetDenominatorAddress
+		? getDenominatorWethValueAndDecimals(mainnetDenominatorAddress)
+		: { wethValue: 1, decimals: 0 }
+
 	const [
-		[tokenAmountWholeLP, balance, totalSupply, lpContractWeth],
+		[tokenAmountWholeLP, balance, totalSupply, lpContractDenominator],
 		poolWeight,
-	] = await Promise.all([batchPromise, poolWeightPromise])
+		denominatorWethValueAndDecimals,
+	] = await Promise.all([
+		batchPromise,
+		poolWeightPromise,
+		denominatorWethValuePromise,
+	])
+
+	const {
+		wethValue: denominatorWethValue,
+		decimals: denominatorDecimals,
+	} = denominatorWethValueAndDecimals
+
+	if (denominatorWethValue !== 1) {
+		console.log({ denominatorWethValue })
+	}
 
 	// Return p1 * w1 * 2
 	const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
-	// TODO: this is zero for non WETH pairs.
-	const lpWethWorth = new BigNumber(lpContractWeth)
+	// TODO: this needs to be multiplied by the value of the denominator in WETH
+	// for WETH, it's obviously one.
+	const lpWethWorth = new BigNumber(lpContractDenominator)
+		.div(new BigNumber(10).pow(denominatorDecimals))
+		.times(new BigNumber(denominatorWethValue))
 	const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
 	// Calculate
 	const tokenAmount = new BigNumber(tokenAmountWholeLP)
 		.times(portionLp)
 		.div(new BigNumber(10).pow(tokenDecimals))
 
-	const wethAmount = new BigNumber(lpContractWeth)
+	// TODO: this was previously assuming weth amount.
+	const wethAmount = new BigNumber(lpContractDenominator)
 		.times(portionLp)
 		.div(new BigNumber(10).pow(18))
 	return {

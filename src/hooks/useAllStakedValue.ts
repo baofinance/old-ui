@@ -13,6 +13,7 @@ import {
 } from '../bao/utils'
 import useBao from './useBao'
 import useBlock from './useBlock'
+import { ChainId } from '@uniswap/sdk'
 
 export interface StakedValue {
   tokenAmount: BigNumber
@@ -33,6 +34,7 @@ const useAllStakedValue = () => {
 
   const fetchAllStakedValue = useCallback(async () => {
     console.log('%cFetch all staked value', 'background-color: hotpink;')
+    console.log(`Mainnet: ${ChainId.MAINNET}`)
     // @ts-ignore TODO:
     const batchRequest = new bao.web3.BatchRequest()
 
@@ -41,18 +43,23 @@ const useAllStakedValue = () => {
         pid,
         lpContract,
         tokenContract,
+        denominatorContract,
         tokenDecimals,
+        mainnetDenominatorAddress,
       }: {
         pid: number
+        mainnetDenominatorAddress: string | null
         lpContract: Contract
         tokenContract: Contract
+        denominatorContract: Contract
         tokenDecimals: number
       }) =>
         getTotalLPWethValue(
           masterChefContract,
-          wethContract,
           lpContract,
           tokenContract,
+          denominatorContract,
+          mainnetDenominatorAddress,
           tokenDecimals,
           pid,
           batchRequest,

@@ -3710,6 +3710,9 @@ export const supportedPools = [
 		tokenAddresses: {
 			1: '0x853d955acef822db058eb8505911ed77f175b99e',
 		},
+		denominatorAddresses: {
+			1: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
+		},
 		tokenDecimals: 18,
 		name: 'FRAX/USDC Fries',
 		symbol: 'FRAX-USDC UNIV2',
