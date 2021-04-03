@@ -13,7 +13,6 @@ import {
 } from '../bao/utils'
 import useBao from './useBao'
 import useBlock from './useBlock'
-import { ChainId } from '@uniswap/sdk'
 
 export interface StakedValue {
   tokenAmount: BigNumber
@@ -34,7 +33,6 @@ const useAllStakedValue = () => {
 
   const fetchAllStakedValue = useCallback(async () => {
     console.log('%cFetch all staked value', 'background-color: hotpink;')
-    console.log(`Mainnet: ${ChainId.MAINNET}`)
     // @ts-ignore TODO:
     const batchRequest = new bao.web3.BatchRequest()
 

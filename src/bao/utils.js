@@ -1,4 +1,4 @@
-import { Fetcher, WETH, Route } from '@uniswap/sdk'
+import { Fetcher, WETH, Route } from '@sushiswap/sdk'
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { supportedPools } from './lib/constants'
