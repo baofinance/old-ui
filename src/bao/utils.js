@@ -168,14 +168,26 @@ export const getTotalLPWethValue = async (
 ) => {
 	const poolWeightPromise = getPoolWeight(masterChefContract, pid, batchRequest)
 
+	// There is one farm on mainnet (xSushi) which doesn't require depositing LP tokens
+	// but instead only the token itself. For farm like this we need a slightly
+	// different calculation.
+	const isTokenPool =
+		tokenContract.options.address === lpContract.options.address
+
+	// We'll need to find the price of the token as it won't be eth.
+	if (isTokenPool) mainnetDenominatorAddress = tokenContract.options.address
+
 	// Query contracts to get stats about the pool.
 	const batchPromise = addCallsToBatch(batchRequest, [
 		// Amount of token in the LP contract
 		tokenContract.methods.balanceOf(lpContract.options.address).call,
-		// Amount of LP token staked in masterchef contract
-		lpContract.methods.balanceOf(masterChefContract.options.address).call,
+		// Amount of LP token (or just token, if token only pool) staked in masterchef contract
+		isTokenPool
+			? tokenContract.methods.balanceOf(masterChefContract.options.address).call
+			: lpContract.methods.balanceOf(masterChefContract.options.address).call,
 		// TODO: we only need to call this once, I think.
 		lpContract.methods.totalSupply().call,
+		// Amount of eth in the LP contract
 		denominatorContract.methods.balanceOf(lpContract.options.address).call,
 	])
 
@@ -200,22 +212,30 @@ export const getTotalLPWethValue = async (
 	} = denominatorWethValueAndDecimals
 
 	// Return p1 * w1 * 2
-	const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
+	const portionLp = !isTokenPool
+		? new BigNumber(balance).div(new BigNumber(totalSupply))
+		: new BigNumber(1)
 
 	let lpWethWorth
+	// note also true if token pool
 	if (mainnetDenominatorAddress) {
 		// we have WETH (not wei) per full denominator
-		lpWethWorth = new BigNumber(lpContractDenominator)
+		lpWethWorth = new BigNumber(!isTokenPool ? lpContractDenominator : balance)
 			// convert to full denominator units (i.e. if it was ETH, wei to ETH)
 			.div(new BigNumber(10).pow(denominatorDecimals))
 			// multiply by our ETH value to get ETH
 			.times(new BigNumber(denominatorWethValue)) // in ETH
-			// convert to wei - TODO: don't hardcode 'ETH' decimals
+			// convert to wei - TODO: probably don't hardcode 'ETH' decimals
 			.times(new BigNumber(10).pow(18))
 	} else {
 		lpWethWorth = new BigNumber(lpContractDenominator)
 	}
-	const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
+
+	// only multiply by two if this is a liquidity token, if it's just one token
+	// then the ethValue is the 'denominator' value only.
+	const totalLpWethValue = portionLp
+		.times(lpWethWorth)
+		.times(isTokenPool ? new BigNumber(1) : new BigNumber(2))
 	// Calculate
 	const tokenAmount = new BigNumber(tokenAmountWholeLP)
 		.times(portionLp)
@@ -225,6 +245,7 @@ export const getTotalLPWethValue = async (
 	const wethAmount = new BigNumber(lpContractDenominator)
 		.times(portionLp)
 		.div(new BigNumber(10).pow(18))
+
 	return {
 		tokenAmount,
 		wethAmount,
