@@ -131,19 +131,28 @@ export const addCallsToBatch = (batchRequest, calls) => {
 export const getDenominatorWethValueAndDecimals = async (
 	mainnetDenominatorAddress,
 ) => {
-	console.log('non eth pair')
-	const denominatorTokenDetails = await Fetcher.fetchTokenData(
-		1,
-		mainnetDenominatorAddress,
-	)
-	const denominatorWethPair = await Fetcher.fetchPairData(
-		denominatorTokenDetails,
-		WETH[1],
-	)
-	const route = new Route([denominatorWethPair], denominatorTokenDetails)
-	return {
-		wethValue: route.midPrice.toSignificant(6),
-		decimals: denominatorTokenDetails.decimals,
+	try {
+		const denominatorTokenDetails = await Fetcher.fetchTokenData(
+			1,
+			mainnetDenominatorAddress,
+		)
+		const denominatorWethPair = await Fetcher.fetchPairData(
+			denominatorTokenDetails,
+			WETH[1],
+		)
+		const route = new Route([denominatorWethPair], denominatorTokenDetails)
+		return {
+			wethValue: route.midPrice.toSignificant(6),
+			decimals: denominatorTokenDetails.decimals,
+		}
+	} catch (e) {
+		console.log(
+			`Error getting stats for denominator with address ${mainnetDenominatorAddress}`,
+		)
+		return {
+			wethValue: 1,
+			decimals: 0,
+		}
 	}
 }
 
@@ -190,17 +199,22 @@ export const getTotalLPWethValue = async (
 		decimals: denominatorDecimals,
 	} = denominatorWethValueAndDecimals
 
-	if (denominatorWethValue !== 1) {
-		console.log({ denominatorWethValue })
-	}
-
 	// Return p1 * w1 * 2
 	const portionLp = new BigNumber(balance).div(new BigNumber(totalSupply))
-	// TODO: this needs to be multiplied by the value of the denominator in WETH
-	// for WETH, it's obviously one.
-	const lpWethWorth = new BigNumber(lpContractDenominator)
-		.div(new BigNumber(10).pow(denominatorDecimals))
-		.times(new BigNumber(denominatorWethValue))
+
+	let lpWethWorth
+	if (mainnetDenominatorAddress) {
+		// we have WETH (not wei) per full denominator
+		lpWethWorth = new BigNumber(lpContractDenominator)
+			// convert to full denominator units (i.e. if it was ETH, wei to ETH)
+			.div(new BigNumber(10).pow(denominatorDecimals))
+			// multiply by our ETH value to get ETH
+			.times(new BigNumber(denominatorWethValue)) // in ETH
+			// convert to wei - TODO: don't hardcode 'ETH' decimals
+			.times(new BigNumber(10).pow(18))
+	} else {
+		lpWethWorth = new BigNumber(lpContractDenominator)
+	}
 	const totalLpWethValue = portionLp.times(lpWethWorth).times(new BigNumber(2))
 	// Calculate
 	const tokenAmount = new BigNumber(tokenAmountWholeLP)
