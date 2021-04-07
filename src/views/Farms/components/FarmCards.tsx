@@ -38,7 +38,7 @@ const FarmCards: React.FC = () => {
 
 	const baoPrice =
 		baoIndex >= 0 && stakedValue[baoIndex]
-			? stakedValue[baoIndex].tokenPriceInWeth
+			? stakedValue[baoIndex].tokenPriceInDenominator // (token price in weth)
 			: new BigNumber(0)
 
 	const BLOCKS_PER_YEAR = new BigNumber(2336000)
@@ -209,18 +209,20 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
 											.slice(0, -1)}%`
 									: 'Loading ...'}
 							</span>
-							{/* <span>
-                {farm.tokenAmount
-                  ? (farm.tokenAmount.toNumber() || 0).toLocaleString('en-US')
-                  : '-'}{' '}
-                {farm.tokenSymbol}
-              </span>
-              <span>
-                {farm.wethAmount
-                  ? (farm.wethAmount.toNumber() || 0).toLocaleString('en-US')
-                  : '-'}{' '}
-                ETH
-              </span> */}
+							{/* <span>{farm.tokenSymbol}</span>
+							<span>
+								{farm.tokenAmount
+									? (farm.tokenAmount.toNumber() || 0).toLocaleString()
+									: '-'}
+							</span>
+							<span>{farm.denominatorSymbol || 'ETH'}</span>
+							<span>
+								{farm.denominatorWethEquivalent
+									? (
+											farm.denominatorWethEquivalent.toNumber() || 0
+									  ).toLocaleString()
+									: '-'}{' '}
+							</span> */}
 						</StyledInsight>
 					</StyledContent>
 				</CardContent>
@@ -335,7 +337,6 @@ const StyledInsight = styled.div`
 	line-height: 32px;
 	font-size: 13px;
 	border: 1px solid #e6dcd5;
-	text-align: center;
 	padding: 0 12px;
 `
 

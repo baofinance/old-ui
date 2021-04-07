@@ -16,9 +16,10 @@ import useBlock from './useBlock'
 
 export interface StakedValue {
   tokenAmount: BigNumber
-  wethAmount: BigNumber
+  denominatorAmount: BigNumber
+  denominatorWethEquivalent: BigNumber
   totalWethValue: BigNumber
-  tokenPriceInWeth: BigNumber
+  tokenPriceInDenominator: BigNumber
   poolWeight: BigNumber
 }
 
@@ -32,8 +33,6 @@ const useAllStakedValue = () => {
   const block = useBlock()
 
   const fetchAllStakedValue = useCallback(async () => {
-    console.log('%cFetch all staked value', 'background-color: hotpink;')
-    // @ts-ignore TODO:
     const batchRequest = new bao.web3.BatchRequest()
 
     const balancePromises = farms.map(
@@ -69,7 +68,7 @@ const useAllStakedValue = () => {
     const balances: Array<StakedValue> = await Promise.all(balancePromises)
 
     setBalance(balances)
-  }, [account, masterChefContract, bao])
+  }, [account, masterChefContract, bao, block])
 
   useEffect(() => {
     if (account && masterChefContract && bao) {

@@ -338,6 +338,7 @@ export const supportedPools = [
 		name: 'Bao/USDC',
 		symbol: 'BAO-USDC SLP',
 		tokenSymbol: 'BAO',
+		denominatorSymbol: 'USDC',
 		poolType: 'sushi',
 		icon: '/bao.png',
 		refUrl:
@@ -358,6 +359,7 @@ export const supportedPools = [
 		name: 'Bao/YFI',
 		symbol: 'BAO-YFI SLP',
 		tokenSymbol: 'BAO',
+		denominatorSymbol: 'YFI',
 		poolType: 'sushi',
 		icon: '/bao.png',
 		refUrl:
@@ -378,6 +380,7 @@ export const supportedPools = [
 		name: 'Bao/Sushi',
 		symbol: 'BAO-SUSHI SLP',
 		tokenSymbol: 'BAO',
+		denominatorSymbol: 'SUSHI',
 		poolType: 'sushi',
 		icon: '/bao.png',
 		refUrl:
@@ -398,6 +401,7 @@ export const supportedPools = [
 		name: 'Bao/Dai',
 		symbol: 'BAO-DAI SLP',
 		tokenSymbol: 'BAO',
+		denominatorSymbol: 'DAI',
 		poolType: 'sushi',
 		icon: '/bao.png',
 		refUrl:
@@ -435,6 +439,7 @@ export const supportedPools = [
 		name: 'Sushi Boat',
 		symbol: 'Sushi-xSushi SLP',
 		tokenSymbol: 'SUSHI',
+		denominatorSymbol: 'xSUSHI',
 		poolType: 'sushi',
 		icon: '/simplysushi.png',
 		refUrl:
@@ -1130,6 +1135,7 @@ export const supportedPools = [
 		name: 'Empty Set Dollar Empty Bowl',
 		symbol: 'ESD-USDC UNIV2',
 		tokenSymbol: 'ESD',
+		denominatorSymbol: 'USDC',
 		icon: '/bowl.png',
 		refUrl: 'https://bilaxy.com/user/register?intro=1428882',
 	},
@@ -1270,6 +1276,7 @@ export const supportedPools = [
 		name: 'wFIL/USDC Flaming Crab',
 		symbol: 'wFIL-USDC BAO',
 		tokenSymbol: 'wFIL',
+		denominatorSymbol: 'USDC',
 		poolType: 'archived',
 		icon: '/crab.png',
 		refUrl:
@@ -1673,6 +1680,7 @@ export const supportedPools = [
 		name: '(w)ZEC Zhaziji',
 		symbol: 'wZEC-USDC BAO',
 		tokenSymbol: 'ZB',
+		denominatorSymbol: 'USDC',
 		poolType: 'archived',
 		icon: '/zhaziji.png',
 		refUrl:
@@ -2381,6 +2389,7 @@ export const supportedPools = [
 		name: 'BOND Baobing',
 		symbol: 'BOND-USDC UNIV2',
 		tokenSymbol: 'BOND',
+		denominatorSymbol: 'USDC',
 		icon: '/shaved-ice.png',
 		refUrl: 'https://www.mxc.ai/auth/signup?inviteCode=13z4G',
 	},
@@ -3269,6 +3278,7 @@ export const supportedPools = [
 		name: 'BUSD BBQ Pork Bun',
 		symbol: 'BUSD-USDC UNIV2',
 		tokenSymbol: 'BUSD',
+		denominatorSymbol: 'USDC',
 		icon: '/meat-bun.png',
 		refUrl: 'https://coinsbit.io/referral/fdfdc261-0d2c-4681-8878-5915c74af58e',
 	},
@@ -3747,6 +3757,7 @@ export const supportedPools = [
 		name: 'FRAX/USDC Fries',
 		symbol: 'FRAX-USDC UNIV2',
 		tokenSymbol: 'FRAX',
+		denominatorSymbol: 'USDC',
 		poolType: 'uni',
 		icon: '/fried-potatoes.png',
 		refUrl:
@@ -3767,6 +3778,7 @@ export const supportedPools = [
 		name: 'DAI/USDC Dip',
 		symbol: 'DAI-USDC UNIV2',
 		tokenSymbol: 'DAI',
+		denominatorSymbol: 'USDC',
 		poolType: 'uni',
 		icon: '/gravy.png',
 		refUrl:

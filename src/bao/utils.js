@@ -148,10 +148,11 @@ export const getDenominatorWethValueAndDecimals = async (
 	} catch (e) {
 		console.log(
 			`Error getting stats for denominator with address ${mainnetDenominatorAddress}`,
+			e,
 		)
 		return {
 			wethValue: 1,
-			decimals: 0,
+			decimals: 18,
 		}
 	}
 }
@@ -168,9 +169,9 @@ export const getTotalLPWethValue = async (
 ) => {
 	const poolWeightPromise = getPoolWeight(masterChefContract, pid, batchRequest)
 
-	// There is one farm on mainnet (xSushi) which doesn't require depositing LP tokens
-	// but instead only the token itself. For farm like this we need a slightly
-	// different calculation.
+	// There is one farm on mainnet (xSushi) which doesn't require depositing LP
+	// tokens but instead only the token itself. For farm like this we need a
+	// slightly different calculation.
 	const isTokenPool =
 		tokenContract.options.address === lpContract.options.address
 
@@ -181,20 +182,22 @@ export const getTotalLPWethValue = async (
 	const batchPromise = addCallsToBatch(batchRequest, [
 		// Amount of token in the LP contract
 		tokenContract.methods.balanceOf(lpContract.options.address).call,
-		// Amount of LP token (or just token, if token only pool) staked in masterchef contract
+		// Amount of LP token (or just token, if token only pool)
+		// staked in masterchef contract
 		isTokenPool
 			? tokenContract.methods.balanceOf(masterChefContract.options.address).call
 			: lpContract.methods.balanceOf(masterChefContract.options.address).call,
-		// TODO: we only need to call this once, I think.
+		// Get the total number of LP tokens
 		lpContract.methods.totalSupply().call,
-		// Amount of eth in the LP contract
+		// Amount of denominator (most commonly weth) in the LP contract
 		denominatorContract.methods.balanceOf(lpContract.options.address).call,
 	])
 
-	// TODO: this needs to determine if it's eth or not.
+	// If no denominator address is supplied, default to the denominator being
+	// in WETH (gwei).
 	const denominatorWethValuePromise = mainnetDenominatorAddress
 		? getDenominatorWethValueAndDecimals(mainnetDenominatorAddress)
-		: { wethValue: 1, decimals: 0 }
+		: { wethValue: 1, decimals: 18 }
 
 	const [
 		[tokenAmountWholeLP, balance, totalSupply, lpContractDenominator],
@@ -225,7 +228,7 @@ export const getTotalLPWethValue = async (
 			.div(new BigNumber(10).pow(denominatorDecimals))
 			// multiply by our ETH value to get ETH
 			.times(new BigNumber(denominatorWethValue)) // in ETH
-			// convert to wei - TODO: probably don't hardcode 'ETH' decimals
+			// convert to wei
 			.times(new BigNumber(10).pow(18))
 	} else {
 		lpWethWorth = new BigNumber(lpContractDenominator)
@@ -237,20 +240,24 @@ export const getTotalLPWethValue = async (
 		.times(lpWethWorth)
 		.times(isTokenPool ? new BigNumber(1) : new BigNumber(2))
 	// Calculate
-	const tokenAmount = new BigNumber(tokenAmountWholeLP)
-		.times(portionLp)
+	const tokenAmount = new BigNumber(!isTokenPool ? tokenAmountWholeLP : balance)
+		.times(!isTokenPool ? portionLp : 1)
 		.div(new BigNumber(10).pow(tokenDecimals))
 
-	// TODO: this was previously assuming weth amount.
-	const wethAmount = new BigNumber(lpContractDenominator)
+	const denominatorAmount = new BigNumber(lpContractDenominator)
 		.times(portionLp)
-		.div(new BigNumber(10).pow(18))
+		.div(new BigNumber(10).pow(denominatorDecimals))
+
+	const denominatorWethEquivalent = mainnetDenominatorAddress
+		? denominatorAmount.times(new BigNumber(denominatorWethValue))
+		: denominatorAmount
 
 	return {
 		tokenAmount,
-		wethAmount,
+		denominatorAmount,
+		denominatorWethEquivalent,
 		totalWethValue: totalLpWethValue.div(new BigNumber(10).pow(18)),
-		tokenPriceInWeth: wethAmount.div(tokenAmount),
+		tokenPriceInDenominator: denominatorAmount.div(tokenAmount),
 		poolWeight: poolWeight,
 	}
 }

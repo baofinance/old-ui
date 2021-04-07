@@ -77,7 +77,6 @@ export class Contracts {
 			}) => {
 				setProvider(lpContract, lpAddress)
 				setProvider(tokenContract, tokenAddress)
-				// TODO: do we need to do this for weth?
 				if (denominatorAddress) {
 					setProvider(denominatorContract, denominatorAddress)
 				}
