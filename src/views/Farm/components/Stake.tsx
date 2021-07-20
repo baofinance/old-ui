@@ -25,11 +25,16 @@ import WithdrawModal from './WithdrawModal'
 interface StakeProps {
 	lpContract: Contract
 	pid: number
-	tokenName: string,
+	tokenName: string
 	poolType: PoolType
 }
 
-const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, poolType }) => {
+const Stake: React.FC<StakeProps> = ({
+	lpContract,
+	pid,
+	tokenName,
+	poolType,
+}) => {
 	const [requestedApproval, setRequestedApproval] = useState(false)
 
 	const allowance = useAllowance(lpContract)
@@ -95,10 +100,12 @@ const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName, poolType }) =
 								/>
 								<StyledActionSpacer />
 								{poolType !== PoolType.ARCHIVED ? (
-								<IconButton onClick={onPresentDeposit}>
-									<AddIcon />
-								</IconButton>
-								) : ''}
+									<IconButton onClick={onPresentDeposit}>
+										<AddIcon />
+									</IconButton>
+								) : (
+									''
+								)}
 							</>
 						)}
 					</StyledCardActions>

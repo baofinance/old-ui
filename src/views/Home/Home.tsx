@@ -18,12 +18,12 @@ const Home: React.FC = () => {
 			/>
 			<StyledInfo>
 				Be sure to read <a href="https://docs.bao.finance">docs.bao.finance</a>{' '}
-				before using the pools so you are familiar with protocol risks and
-				fees!
+				before using the pools so you are familiar with protocol risks and fees!
 			</StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
-				Please note this is the mainnet version of Bao, for xDai visit: <a href="https://xdai.bao.finance">xdai.bao.finance</a>
+				Please note this is the mainnet version of Bao, for xDai visit:{' '}
+				<a href="https://xdai.bao.finance">xdai.bao.finance</a>
 			</StyledInfo>
 			<Spacer size="md" />
 			<Container>
@@ -39,9 +39,10 @@ const Home: React.FC = () => {
 			</div>
 			<Spacer size="lg" />
 			<StyledInfo>
-				🏆<b>Pro Tip</b>: BAO-ETH UNIV2 has the biggest weight of all pools. Check
-                them <a href="https://docs.bao.finance/pool-weights">here</a>{'.'}
-            </StyledInfo>
+				🏆<b>Pro Tip</b>: BAO-ETH UNIV2 has the biggest weight of all pools.
+				Check them <a href="https://docs.bao.finance/pool-weights">here</a>
+				{'.'}
+			</StyledInfo>
 			<Spacer size="md" />
 			<StyledInfo>
 				💲<b>Pro Tip</b>: The affiliate links from the "Buy X" buttons generate
