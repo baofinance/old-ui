@@ -110,13 +110,8 @@ export const getTotalLPWethValue = async (
 	tokenDecimals,
 	pid,
 ) => {
-	const [
-		tokenAmountWholeLP,
-		balance,
-		totalSupply,
-		lpContractWeth,
-		poolWeight,
-	] = await Promise.all([
+	const [tokenAmountWholeLP, balance, totalSupply, lpContractWeth, poolWeight,] =
+		await Promise.all([
 			tokenContract.methods.balanceOf(lpContract.options.address).call(),
 			lpContract.methods.balanceOf(masterChefContract.options.address).call(),
 			lpContract.methods.totalSupply().call(),
