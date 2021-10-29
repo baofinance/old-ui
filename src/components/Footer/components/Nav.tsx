@@ -12,7 +12,7 @@ const Nav: React.FC = () => {
 			</StyledLink>
 			<StyledLink
 				target="_blank"
-				href="#"
+				href="https://www.immunefi.com/bounty/baofinance"
 			>
 				Bug Bounty Program
 			</StyledLink>
