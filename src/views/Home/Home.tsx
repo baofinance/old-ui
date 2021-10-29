@@ -8,6 +8,9 @@ import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import Balances from './components/Balances'
 
+import immunefi from '../../assets/img/immunefi-footer-black.svg'
+
+
 const Home: React.FC = () => {
 	return (
 		<Page>
@@ -59,6 +62,10 @@ const Home: React.FC = () => {
 				Please partake accordingly.
 				<br />
 				The service is provided as-is.
+			</StyledInfo>
+			<Spacer size="md" />
+			<StyledInfo>
+			<img src={immunefi} height="100px" />
 			</StyledInfo>
 		</Page>
 	)
