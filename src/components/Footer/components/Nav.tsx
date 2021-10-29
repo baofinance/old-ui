@@ -12,15 +12,9 @@ const Nav: React.FC = () => {
 			</StyledLink>
 			<StyledLink
 				target="_blank"
-				href="https://app.uniswap.org/#/swap?inputCurrency=0x374cb8c27130e2c9e04f44303f3c8351b9de61c1&outputCurrency=ETH"
+				href="#"
 			>
-				Uniswap BAO-ETH
-			</StyledLink>
-			<StyledLink
-				target="_blank"
-				href="https://app.sushiswap.fi/pair/0x0eee7f7319013df1f24f5eaf83004fcf9cf49245"
-			>
-				SushiSwap BAO-ETH
+				Bug Bounty Program
 			</StyledLink>
 			<StyledLink target="_blank" href="https://discord.gg/BW3P62vJXT">
 				Discord
