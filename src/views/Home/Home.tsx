@@ -10,6 +10,7 @@ import Balances from './components/Balances'
 
 import immunefi from '../../assets/img/immunefi.png'
 
+
 const Home: React.FC = () => {
 	return (
 		<Page>
