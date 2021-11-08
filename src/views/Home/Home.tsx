@@ -8,7 +8,8 @@ import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import Balances from './components/Balances'
 
-import immunefi from '../../assets/img/immunefi-footer-black.svg'
+import immunefi from '../../assets/img/immunefi.png'
+
 
 const Home: React.FC = () => {
 	return (
@@ -66,9 +67,10 @@ const Home: React.FC = () => {
 			<Spacer size="md" />
 			<StyledInfo>
 				<a href="https://www.immunefi.com/bounty/baofinance" target="_blank">
-					<img src={immunefi} height="100px" />
+					<img src={immunefi} height="200px" />
 				</a>
 			</StyledInfo>
+			<Spacer size="md" />
 		</Page>
 	)
 }
