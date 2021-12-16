@@ -155,28 +155,6 @@ const Balances: React.FC = () => {
 			</StyledWrapper>
 			<Spacer />
 			<Spacer />
-			<StyledWrapper>
-				<Card>
-					<CardContent>
-						<Label
-							text="Your Referral Link:
-		  "
-						/>
-						<Label text={account ? refLink : ''} />
-						<br />
-						<Label
-							text="
-		  Your Referrals:
-		  "
-						/>
-						<Label text={account ? totalReferrals : 'Referrals'} />
-					</CardContent>
-					<Footnote>
-						Earn future rewards from referrals
-						<FootnoteValue></FootnoteValue>
-					</Footnote>
-				</Card>
-			</StyledWrapper>
 		</Fragment>
 	)
 }
