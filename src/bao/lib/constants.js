@@ -3330,7 +3330,7 @@ export const supportedPools = [
 			1: '0xbc3ec4e491b835dce394a53e9a9a10ac19564839',
 		},
 		tokenDecimals: 18,
-		name: 'Starbugs Bug Protien',
+		name: 'Starbugs Bug Protein',
 		symbol: 'BUGS-ETH UNIV2',
 		tokenSymbol: 'BUGS',
 		icon: '/starbugs.png',
@@ -3582,6 +3582,7 @@ export const supportedPools = [
 		symbol: 'DEXT-ETH UNIV2',
 		tokenSymbol: 'DEXT',
 		icon: '/drumstick.png',
+		poolType: 'archived',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DEXT/ETH',
 	},
