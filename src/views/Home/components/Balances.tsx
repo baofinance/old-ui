@@ -1,25 +1,23 @@
 import BigNumber from 'bignumber.js'
-import React, { useEffect, useState, Fragment } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import CountUp from 'react-countup'
 import styled from 'styled-components'
 import { useWallet } from 'use-wallet'
+import {
+	getBaoAddress,
+	getBaoSupply, getMasterChefContract, getReferrals
+} from '../../../bao/utils'
+import BaoIcon from '../../../components/BaoIcon'
 import Card from '../../../components/Card'
 import CardContent from '../../../components/CardContent'
 import Label from '../../../components/Label'
 import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
-import BaoIcon from '../../../components/BaoIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import useAllStakedValue from '../../../hooks/useAllStakedValue'
+import useBao from '../../../hooks/useBao'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import useBao from '../../../hooks/useBao'
-import {
-	getBaoAddress,
-	getBaoSupply,
-	getReferrals,
-	getMasterChefContract,
-} from '../../../bao/utils'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
@@ -155,28 +153,6 @@ const Balances: React.FC = () => {
 			</StyledWrapper>
 			<Spacer />
 			<Spacer />
-			<StyledWrapper>
-				<Card>
-					<CardContent>
-						<Label
-							text="Your Referral Link:
-		  "
-						/>
-						<Label text={account ? refLink : ''} />
-						<br />
-						<Label
-							text="
-		  Your Referrals:
-		  "
-						/>
-						<Label text={account ? totalReferrals : 'Referrals'} />
-					</CardContent>
-					<Footnote>
-						Earn future rewards from referrals
-						<FootnoteValue></FootnoteValue>
-					</Footnote>
-				</Card>
-			</StyledWrapper>
 		</Fragment>
 	)
 }
