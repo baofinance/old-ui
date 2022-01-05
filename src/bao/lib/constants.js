@@ -3747,7 +3747,6 @@ export const supportedPools = [
 		tokenSymbol: 'DEXT',
 		poolType: 'archived',
 		icon: '/drumstick.png',
-		poolType: 'archived',
 		refUrl:
 			'https://1inch.exchange/#/r/0x3bC3c8aF8CFe3dFC9bA1A57c7C3b653e3f6d6951/DEXT/ETH',
 	},
