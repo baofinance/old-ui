@@ -46,8 +46,7 @@ const FarmCards: React.FC = () => {
 	const BAO_BER_BLOCK = new BigNumber(128000)
 
 	const pools: {[key: string]: FarmWithStakedValue[]} = {
-		[PoolType.UNI]: [],
-		[PoolType.SUSHI]: [],
+		[PoolType.ACTIVE]: [],
 		[PoolType.ARCHIVED]: []
 	};
 
@@ -56,7 +55,7 @@ const FarmCards: React.FC = () => {
 			const farmWithStakedValue = {
 				...farm,
 				...stakedValue[i],
-				poolType: farm.poolType || PoolType.UNI,
+				poolType: farm.poolType || PoolType.ACTIVE,
 				apy: stakedValue[i]
 					? baoPrice
 							.times(BAO_BER_BLOCK)
@@ -73,31 +72,14 @@ const FarmCards: React.FC = () => {
 	return (
 		<Tabs>
 			<TabList>
-				<Tab>Uni Pools</Tab>
-				<Tab>Sushi Pools</Tab>
+				<Tab>Active Pools</Tab>
 				<Tab>Archived Pools</Tab>
 			</TabList>
 
 			<TabPanel>
 				<StyledCards>
-					{pools[PoolType.UNI].length ? (
-						pools[PoolType.UNI].map((farm, i) => (
-							<React.Fragment key={i}>
-								<FarmCard farm={farm} />
-								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
-							</React.Fragment>
-						))
-					) : (
-							<StyledLoadingWrapper>
-								<Loader text="Cooking the rice ..." />
-							</StyledLoadingWrapper>
-						)}
-				</StyledCards>
-			</TabPanel>
-			<TabPanel>
-				<StyledCards>
-					{pools[PoolType.SUSHI].length ? (
-						pools[PoolType.SUSHI].map((farm, i) => (
+					{pools[PoolType.ACTIVE].length ? (
+						pools[PoolType.ACTIVE].map((farm, i) => (
 							<React.Fragment key={i}>
 								<FarmCard farm={farm} />
 								{((i + 1) % (cardsPerRow) !== 0) && <StyledSpacer />}
