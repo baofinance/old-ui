@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js'
-import React, { useCallback, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Button from '../../../components/Button'
+import Label from '../../../components/Label'
 import Modal, { ModalProps } from '../../../components/Modal'
 import ModalActions from '../../../components/ModalActions'
-import ModalTitle from '../../../components/ModalTitle'
 import ModalContent from '../../../components/ModalContent'
-import TokenInput from '../../../components/TokenInput'
+import ModalTitle from '../../../components/ModalTitle'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface WithdrawModalProps extends ModalProps {
@@ -20,34 +20,29 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
 	max,
 	tokenName = '',
 }) => {
-	const [val, setVal] = useState('')
 	const [pendingTx, setPendingTx] = useState(false)
 
 	const fullBalance = useMemo(() => {
 		return getFullDisplayBalance(max)
 	}, [max])
 
-	const handleChange = useCallback(
-		(e: React.FormEvent<HTMLInputElement>) => {
-			setVal(e.currentTarget.value)
-		},
-		[setVal],
-	)
-
-	const handleSelectMax = useCallback(() => {
-		setVal(fullBalance)
-	}, [fullBalance, setVal])
-
 	return (
 		<Modal>
 			<ModalTitle text={`Withdraw ${tokenName}`} />
-			<TokenInput
-				onSelectMax={handleSelectMax}
-				onChange={handleChange}
-				value={val}
-				max={fullBalance}
-				symbol={tokenName}
-			/>
+			<ModalContent>
+				Due to an issue with the masterFarmer contract, users cannot withdraw
+				their staked assets as they would normally. Because the withdraw
+				function is trying to call the harvest function, and rewards have ended,
+				the transactions are failing. We are now using the emergencyWithdraw
+				function to remedy this situation, which takes a fee of 25%. Upon
+				withdrawal, this 25% fee will be sent to the treasury multisig.
+				Guardians will refund users this fee on a frequent basis. If you have
+				any questions, please reach out on Discord. We are sorry for the
+				inconvenience.
+				<Label>
+					Staked Balance: {fullBalance} {tokenName}
+				</Label>
+			</ModalContent>
 			<ModalActions>
 				<Button text="Cancel" variant="secondary" onClick={onDismiss} />
 				<Button
@@ -55,17 +50,12 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
 					text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
 					onClick={async () => {
 						setPendingTx(true)
-						await onConfirm(val)
+						await onConfirm(fullBalance)
 						setPendingTx(false)
 						onDismiss()
 					}}
 				/>
 			</ModalActions>
-			<ModalContent>
-				{
-					'Remember the longer you stay in a pool the lower your fee. Read the docs for details, but most users will want to stay in a pool 5 days or longer.'
-				}
-			</ModalContent>
 		</Modal>
 	)
 }

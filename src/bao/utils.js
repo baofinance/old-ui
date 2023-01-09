@@ -176,6 +176,17 @@ export const unstake = async (
 			return tx.transactionHash
 		})
 }
+
+export const emergencyWithdraw = async (masterChefContract, pid, account) => {
+	return masterChefContract.methods
+		.emergencyWithdraw(pid)
+		.send({ from: account })
+		.on('transactionHash', (tx) => {
+			console.log(tx)
+			return tx.transactionHash
+		})
+}
+
 export const harvest = async (masterChefContract, pid, account) => {
 	return masterChefContract.methods
 		.claimReward(pid)
